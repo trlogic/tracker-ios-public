@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name                = "TrackerSdk"
-  spec.version             = "0.0.1"
+  spec.version             = "0.0.2"
   spec.summary             = "Formica Tracker SDK for iOS."
   spec.description         = "Formica Tracker SDK for iOS. You can implement this SDK to your iOS project to track user events."
   spec.homepage            = "https://github.com/trlogic/tracker-ios-public"
