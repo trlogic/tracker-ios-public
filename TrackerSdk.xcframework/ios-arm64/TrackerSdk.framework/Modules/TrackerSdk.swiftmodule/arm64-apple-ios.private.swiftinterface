@@ -20,14 +20,6 @@ import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
 import Darwin.sys.sysctl
-@objc public class LocationListener : ObjectiveC.NSObject, TrackerSdk.EventListener {
-  public init(config: TrackerSdk.TrackerConfig, trigger: TrackerSdk.TrackerTriggerConfig, manager: TrackerSdk.TriggerManager)
-  public func initialize()
-  public func terminate()
-  @objc deinit
-}
-extension TrackerSdk.LocationListener : CoreLocation.CLLocationManagerDelegate {
-}
 @objc @_inheritsConvenienceInitializers public class LocationDataObtainer : ObjectiveC.NSObject {
   @objc override dynamic public init()
   public func getLocation() -> CoreLocation.CLLocationCoordinate2D?
@@ -194,6 +186,8 @@ public class TrackerManager {
   public func terminate()
   public func getContext() -> TrackerSdk.TrackerContext
   public func triggerCustomEvent(name: Swift.String, args: [Swift.String : Any]?)
+  public func setUserDefinedValues(key: Swift.String, value: Any)
+  public func getUserDefinedValues() -> [Swift.String : Any]
   @objc deinit
 }
 @_hasMissingDesignatedInitializers public class ContactDataObtainer {
@@ -455,6 +449,8 @@ public class DataStore {
   public func setGyro(_ gyro: CoreMotion.CMGyroData?)
   public func getAcceleration() -> CoreMotion.CMAcceleration?
   public func setAcceleration(_ acceleration: CoreMotion.CMAcceleration)
+  public func getUserDefinedValues() -> [Swift.String : Any]
+  public func setUserDefinedValues(key: Swift.String, value: Any)
   @objc deinit
 }
 public class TriggerListener : TrackerSdk.EventListener {

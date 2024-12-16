@@ -23,219 +23,6 @@
       },
       {
         "kind": "TypeDecl",
-        "name": "LocationListener",
-        "printedName": "LocationListener",
-        "children": [
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init(config:trigger:manager:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "LocationListener",
-                "printedName": "TrackerSdk.LocationListener",
-                "usr": "c:@M@TrackerSdk@objc(cs)LocationListener"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "TrackerConfig",
-                "printedName": "TrackerSdk.TrackerConfig",
-                "usr": "s:10TrackerSdk0A6ConfigV"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "TrackerTriggerConfig",
-                "printedName": "TrackerSdk.TrackerTriggerConfig",
-                "usr": "s:10TrackerSdk0A13TriggerConfigV"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "TriggerManager",
-                "printedName": "TrackerSdk.TriggerManager",
-                "usr": "s:10TrackerSdk14TriggerManagerC"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "s:10TrackerSdk16LocationListenerC6config7trigger7managerAcA0A6ConfigV_AA0a7TriggerH0VAA0I7ManagerCtcfc",
-            "mangledName": "$s10TrackerSdk16LocationListenerC6config7trigger7managerAcA0A6ConfigV_AA0a7TriggerH0VAA0I7ManagerCtcfc",
-            "moduleName": "TrackerSdk",
-            "declAttributes": [
-              "AccessControl"
-            ],
-            "init_kind": "Designated"
-          },
-          {
-            "kind": "Function",
-            "name": "initialize",
-            "printedName": "initialize()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:10TrackerSdk16LocationListenerC10initializeyyF",
-            "mangledName": "$s10TrackerSdk16LocationListenerC10initializeyyF",
-            "moduleName": "TrackerSdk",
-            "declAttributes": [
-              "AccessControl"
-            ],
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "terminate",
-            "printedName": "terminate()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:10TrackerSdk16LocationListenerC9terminateyyF",
-            "mangledName": "$s10TrackerSdk16LocationListenerC9terminateyyF",
-            "moduleName": "TrackerSdk",
-            "declAttributes": [
-              "AccessControl"
-            ],
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "LocationListener",
-                "printedName": "TrackerSdk.LocationListener",
-                "usr": "c:@M@TrackerSdk@objc(cs)LocationListener"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "c:@M@TrackerSdk@objc(cs)LocationListener(im)init",
-            "mangledName": "$s10TrackerSdk16LocationListenerCACycfc",
-            "moduleName": "TrackerSdk",
-            "overriding": true,
-            "implicit": true,
-            "objc_name": "init",
-            "declAttributes": [
-              "Dynamic",
-              "ObjC",
-              "Override"
-            ],
-            "init_kind": "Designated"
-          }
-        ],
-        "declKind": "Class",
-        "usr": "c:@M@TrackerSdk@objc(cs)LocationListener",
-        "mangledName": "$s10TrackerSdk16LocationListenerC",
-        "moduleName": "TrackerSdk",
-        "declAttributes": [
-          "AccessControl",
-          "ObjC"
-        ],
-        "superclassUsr": "c:objc(cs)NSObject",
-        "superclassNames": [
-          "ObjectiveC.NSObject"
-        ],
-        "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "EventListener",
-            "printedName": "EventListener",
-            "usr": "s:10TrackerSdk13EventListenerP",
-            "mangledName": "$s10TrackerSdk13EventListenerP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Copyable",
-            "printedName": "Copyable",
-            "usr": "s:s8CopyableP",
-            "mangledName": "$ss8CopyableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Equatable",
-            "printedName": "Equatable",
-            "usr": "s:SQ",
-            "mangledName": "$sSQ"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Hashable",
-            "printedName": "Hashable",
-            "usr": "s:SH",
-            "mangledName": "$sSH"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CVarArg",
-            "printedName": "CVarArg",
-            "usr": "s:s7CVarArgP",
-            "mangledName": "$ss7CVarArgP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "_KeyValueCodingAndObservingPublishing",
-            "printedName": "_KeyValueCodingAndObservingPublishing",
-            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
-            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "_KeyValueCodingAndObserving",
-            "printedName": "_KeyValueCodingAndObserving",
-            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
-            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CustomStringConvertible",
-            "printedName": "CustomStringConvertible",
-            "usr": "s:s23CustomStringConvertibleP",
-            "mangledName": "$ss23CustomStringConvertibleP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CustomDebugStringConvertible",
-            "printedName": "CustomDebugStringConvertible",
-            "usr": "s:s28CustomDebugStringConvertibleP",
-            "mangledName": "$ss28CustomDebugStringConvertibleP"
-          }
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "TrackerSdk",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "CoreLocation",
-        "printedName": "CoreLocation",
-        "declKind": "Import",
-        "moduleName": "TrackerSdk"
-      },
-      {
-        "kind": "TypeDecl",
         "name": "LocationDataObtainer",
         "printedName": "LocationDataObtainer",
         "children": [
@@ -6413,6 +6200,71 @@
             "declKind": "Func",
             "usr": "s:10TrackerSdk0A7ManagerC18triggerCustomEvent4name4argsySS_SDySSypGSgtF",
             "mangledName": "$s10TrackerSdk0A7ManagerC18triggerCustomEvent4name4argsySS_SDySSypGSgtF",
+            "moduleName": "TrackerSdk",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setUserDefinedValues",
+            "printedName": "setUserDefinedValues(key:value:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ProtocolComposition",
+                "printedName": "Any"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10TrackerSdk0A7ManagerC20setUserDefinedValues3key5valueySS_yptF",
+            "mangledName": "$s10TrackerSdk0A7ManagerC20setUserDefinedValues3key5valueySS_yptF",
+            "moduleName": "TrackerSdk",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getUserDefinedValues",
+            "printedName": "getUserDefinedValues()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.String : Any]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:SD"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10TrackerSdk0A7ManagerC20getUserDefinedValuesSDySSypGyF",
+            "mangledName": "$s10TrackerSdk0A7ManagerC20getUserDefinedValuesSDySSypGyF",
             "moduleName": "TrackerSdk",
             "declAttributes": [
               "AccessControl"
@@ -12708,6 +12560,71 @@
               "AccessControl"
             ],
             "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getUserDefinedValues",
+            "printedName": "getUserDefinedValues()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.String : Any]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:SD"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10TrackerSdk9DataStoreC20getUserDefinedValuesSDySSypGyF",
+            "mangledName": "$s10TrackerSdk9DataStoreC20getUserDefinedValuesSDySSypGyF",
+            "moduleName": "TrackerSdk",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setUserDefinedValues",
+            "printedName": "setUserDefinedValues(key:value:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ProtocolComposition",
+                "printedName": "Any"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10TrackerSdk9DataStoreC20setUserDefinedValues3key5valueySS_yptF",
+            "mangledName": "$s10TrackerSdk9DataStoreC20setUserDefinedValues3key5valueySS_yptF",
+            "moduleName": "TrackerSdk",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
           }
         ],
         "declKind": "Class",
@@ -15734,6 +15651,13 @@
       "offset": 282,
       "length": 8,
       "value": "\"ACTIVE\""
+    },
+    {
+      "filePath": "\/Users\/hasangozum\/Desktop\/trlogic\/tracker-ios\/TrackerSdk\/Core\/DataStore.swift",
+      "kind": "Dictionary",
+      "offset": 508,
+      "length": 3,
+      "value": "[]"
     },
     {
       "filePath": "\/Users\/hasangozum\/Desktop\/trlogic\/tracker-ios\/TrackerSdk\/Core\/Trigger\/TriggerListener.swift",
