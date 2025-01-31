@@ -2,6 +2,7 @@
 // swift-compiler-version: Apple Swift version 6.0 effective-5.10 (swiftlang-6.0.0.9.10 clang-1600.0.26.2)
 // swift-module-flags: -target arm64-apple-ios12.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name TrackerSdk
 import CallKit
+import SystemConfiguration.CaptiveNetwork
 import Contacts
 import CoreLocation
 import CoreMotion
@@ -114,25 +115,29 @@ public enum TrackerVariableType : Swift.String, Swift.Decodable {
   case IP_ADDRESS
   case MAC_ADDRESS
   case CARRIER
+  case WIFI_SSID
+  case IS_VPN
   case CALL_DURATION
   case CALL_IS_INCOMING
   case CALL_NUMBER
   case IS_CONTACT
-  case CUSTOM_TRIGGER_ARGS
-  case SCREEN_RECORD_STATUS
+  case IS_IN_VOIP_CALL
+  case IS_IN_CALL
   case SCREEN_RECORD_DURATION
+  case SCREEN_RECORD_STATUS
+  case SCREEN_SHARE_STATUS
+  case SCREEN_SHARE_DURATION
   case LAST_KNOWN_LAT
   case LAST_KNOWN_LON
+  case CUSTOM_TRIGGER_ARGS
   case GYRO_X
   case GYRO_Y
   case GYRO_Z
   case TILT_STATUS
   case CURRENT_TRIGGER_NAME
-  case PLATFORM
   case CONTACT_LIST
-  case SCREEN_SHARE_DURATION
-  case SCREEN_SHARE_STATUS
   case APP_LIST
+  case PLATFORM
   public init?(rawValue: Swift.String)
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
@@ -164,16 +169,17 @@ public class TrackerContext {
   public func getContactDataObtainer() -> TrackerSdk.ContactDataObtainer
   @objc deinit
 }
-public class NetworkDataObtainer {
-  public init()
-  public func getCarrier() -> Swift.String?
-  public func getMacAddress() -> Swift.String?
+public class TransactionMapper {
+  public init(context: TrackerSdk.TrackerContext, config: TrackerSdk.TrackerConfig)
+  public func execute(_ config: TrackerSdk.TrackerTriggerConfig, _ args: [Swift.String : Any]?) -> TrackerSdk.TrackerEventPayload?
   @objc deinit
 }
-public class KeyboardChangeListener : TrackerSdk.EventListener {
-  public init(config: TrackerSdk.TrackerConfig, trigger: TrackerSdk.TrackerTriggerConfig, manager: TrackerSdk.TriggerManager)
-  public func initialize()
-  public func terminate()
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class NetworkDataObtainer : ObjectiveC.NSObject, CoreLocation.CLLocationManagerDelegate {
+  public func getCarrier() -> Swift.String?
+  public func getSSID() -> Swift.String?
+  public func locationManager(_ manager: CoreLocation.CLLocationManager, didChangeAuthorization status: CoreLocation.CLAuthorizationStatus) -> Swift.String?
+  public func isVpn() -> Swift.Bool
+  public func getMacAddress() -> Swift.String?
   @objc deinit
 }
 extension UIKit.UIDevice {
@@ -185,9 +191,10 @@ public class TrackerManager {
   public func initialize(apiKey: Swift.String, serviceUrl: Swift.String, tenant: Swift.String, onReady: (() -> Swift.Void)?)
   public func terminate()
   public func getContext() -> TrackerSdk.TrackerContext
-  public func triggerCustomEvent(name: Swift.String, args: [Swift.String : Any]?)
+  public func triggerCustomEvent(name: Swift.String, args: [Swift.String : Any])
+  public func triggerCustomEventSync(name: Swift.String, args: [Swift.String : Any], callback: @escaping TrackerSdk.ClientCallback<TrackerSdk.GenericResponse<TrackerSdk.TransactionSubmitResult>>)
   public func setUserDefinedValues(key: Swift.String, value: Any)
-  public func getUserDefinedValues() -> [Swift.String : Any]
+  public func getUserDefinedValues() -> [Swift.String : Any]?
   @objc deinit
 }
 @_hasMissingDesignatedInitializers public class ContactDataObtainer {
@@ -200,13 +207,13 @@ public struct ContactData : Swift.Decodable {
 public class ScreenShareListener : TrackerSdk.EventListener {
   public static let SHARE_DURATION_ARG_NAME: Swift.String
   public static let SHARE_STATUS_ARG_NAME: Swift.String
-  public init(config: TrackerSdk.TrackerConfig, trigger: TrackerSdk.TrackerTriggerConfig, manager: TrackerSdk.TriggerManager)
+  public init(type: TrackerSdk.TriggerType, callback: @escaping ((_ args: [Swift.String : Any]?) -> Swift.Void))
   public func initialize()
   public func terminate()
   @objc deinit
 }
 public class ApplicationOpenListener : TrackerSdk.EventListener {
-  public init(config: TrackerSdk.TrackerConfig, trigger: TrackerSdk.TrackerTriggerConfig, manager: TrackerSdk.TriggerManager)
+  public init(type: TrackerSdk.TriggerType, callback: @escaping ((_ args: [Swift.String : Any]?) -> Swift.Void))
   public func initialize()
   public func terminate()
   @objc deinit
@@ -222,18 +229,18 @@ public struct TrackerEventPayload : Swift.Codable {
 public enum TriggerType : Swift.String, Swift.Decodable {
   case APP_STATE_CHANGE
   case CUSTOM
+  case APPLICATION_OPEN
   case NETWORK_CHANGE
   case APP_CALL_END
-  case APP_CALL_RING
   case APP_CALL_APPROVE
+  case APP_CALL_RING
   case APP_CALL_REJECT
-  case SCREEN_RECORD_START
-  case SCREEN_RECORD_END
-  case APPLICATION_OPEN
-  case SCREEN_SHARE_START
-  case SCREEN_SHARE_END
   case VOIP_CALL_START
   case VOIP_CALL_END
+  case SCREEN_RECORD_END
+  case SCREEN_RECORD_START
+  case SCREEN_SHARE_START
+  case SCREEN_SHARE_END
   public init?(rawValue: Swift.String)
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
@@ -241,13 +248,13 @@ public enum TriggerType : Swift.String, Swift.Decodable {
   }
 }
 public class NetworkChangeListener : TrackerSdk.EventListener {
-  public init(config: TrackerSdk.TrackerConfig, trigger: TrackerSdk.TrackerTriggerConfig, manager: TrackerSdk.TriggerManager)
+  public init(type: TrackerSdk.TriggerType, callback: @escaping ((_ args: [Swift.String : Any]?) -> Swift.Void))
   public func initialize()
   public func terminate()
   @objc deinit
 }
 public class CallListener : TrackerSdk.EventListener {
-  public init(config: TrackerSdk.TrackerConfig, trigger: TrackerSdk.TrackerTriggerConfig, manager: TrackerSdk.TriggerManager)
+  public init(type: TrackerSdk.TriggerType, callback: @escaping ((_ args: [Swift.String : Any]?) -> Swift.Void))
   public func initialize()
   public func terminate()
   @objc deinit
@@ -366,7 +373,74 @@ public class DeviceDataObtainer {
   public func getCurrentScreenTime() -> Swift.Double
   public func getDeviceId() -> Swift.String?
   public func getScreenShareStatus() -> Swift.String
+  public func isInCall() -> Swift.Bool
   @objc deinit
+}
+public struct GenericResponse<T> : Swift.Decodable where T : Swift.Decodable {
+  public var requestId: Swift.String
+  public var timestamp: Swift.UInt64
+  public var success: Swift.Bool
+  public var data: T
+  public var error: TrackerSdk.ErrorResponse?
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct TransactionSubmitResult : Swift.Decodable {
+  public var id: Swift.String
+  public var fraud: TrackerSdk.TransactionRiskDetail
+  public var compliance: TrackerSdk.TransactionRiskDetail
+  public var failures: [TrackerSdk.Failure]
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct TransactionRiskDetail : Swift.Decodable {
+  public var resolution: TrackerSdk.TransactionResolution
+  public var score: Swift.Int
+  public var rules: [TrackerSdk.RuleResult]
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum TransactionResolution : Swift.String, Swift.Decodable {
+  case APPROVED
+  case ESCALATED
+  case DECLINED
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct RuleResult : Swift.Decodable {
+  public var name: Swift.String
+  public var resolution: TrackerSdk.TransactionResolution
+  public var score: Swift.Int
+  public var attachments: [Swift.String : TrackerSdk.AnyDecodable]
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct Failure : Swift.Decodable {
+  public var type: TrackerSdk.ComponentType
+  public var name: Swift.String
+  public var code: Swift.Int
+  public var description: Swift.String
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum ComponentType : Swift.String, Swift.Decodable {
+  case VELOCITY
+  case LIST
+  case QUERY
+  case BASIC
+  case API
+  case RULE
+  case STORE
+  case PREDICTION
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct ErrorResponse : Swift.Decodable {
+  public var code: Swift.Int
+  public var message: Swift.String
+  public var attachments: [Swift.String : Swift.String]
+  public init(from decoder: any Swift.Decoder) throws
 }
 public protocol Check_Method_Of_JailBreak : AnyObject {
   func sendTheStatusOfJailBreak(value: Swift.Bool)
@@ -392,28 +466,17 @@ public class JailbreakDataObtainer : TrackerSdk.Check_Method_Of_JailBreak {
   public func isRooted() -> Swift.Bool
   @objc deinit
 }
-public class TriggerManager {
-  public init(config: TrackerSdk.TrackerConfig)
-  public func trigger(_ trigger: TrackerSdk.TrackerTriggerConfig, _ args: [Swift.String : Any]?)
-  @objc deinit
-}
-public class CustomTriggerListener : TrackerSdk.EventListener {
-  public init(config: TrackerSdk.TrackerConfig, trigger: TrackerSdk.TrackerTriggerConfig, manager: TrackerSdk.TriggerManager)
-  public func initialize()
-  public func terminate()
-  @objc deinit
-}
 public class ScreenRecordListener : TrackerSdk.EventListener {
   public static let IS_RECORDED_ARG_NAME: Swift.String
   public static let RECORD_DURATION_ARG_NAME: Swift.String
-  public init(config: TrackerSdk.TrackerConfig, trigger: TrackerSdk.TrackerTriggerConfig, manager: TrackerSdk.TriggerManager)
+  public init(type: TrackerSdk.TriggerType, callback: @escaping ((_ args: [Swift.String : Any]?) -> Swift.Void))
   public func initialize()
   public func terminate()
   @objc deinit
 }
 public class TransactionGateway {
   public init()
-  public func send(_ transaction: TrackerSdk.TrackerEventPayload)
+  public func send(_ transaction: TrackerSdk.TrackerEventPayload, _ callback: (TrackerSdk.ClientCallback<TrackerSdk.GenericResponse<TrackerSdk.TransactionSubmitResult>>)?)
   @objc deinit
 }
 public class MotionDataObtainer {
@@ -453,21 +516,20 @@ public class DataStore {
   public func setUserDefinedValues(key: Swift.String, value: Any)
   @objc deinit
 }
+public struct AnyDecodable : Swift.Decodable {
+  public init(from decoder: any Swift.Decoder) throws
+}
+public typealias ClientCallback<T> = (_ value: T) -> Swift.Void
 public class TriggerListener : TrackerSdk.EventListener {
-  public init(config: TrackerSdk.TrackerConfig)
+  public init(context: TrackerSdk.TrackerContext)
   public func initialize()
+  public func trigger(_ type: TrackerSdk.TriggerType, _ args: [Swift.String : Any]?)
+  public func triggerCustom(name: Swift.String, args: [Swift.String : Any], callback: TrackerSdk.ClientCallback<TrackerSdk.GenericResponse<TrackerSdk.TransactionSubmitResult>>?)
   public func terminate()
-  public func listenAppState(_ trigger: TrackerSdk.TrackerTriggerConfig)
-  public func listenCustom(_ trigger: TrackerSdk.TrackerTriggerConfig)
-  public func listenCallEnd(_ trigger: TrackerSdk.TrackerTriggerConfig)
-  public func listenRecord(_ trigger: TrackerSdk.TrackerTriggerConfig)
-  public func listenApplicationOpen(_ trigger: TrackerSdk.TrackerTriggerConfig)
-  public func listenNetworkChange(_ trigger: TrackerSdk.TrackerTriggerConfig)
-  public func listenScreenShare(_ trigger: TrackerSdk.TrackerTriggerConfig)
   @objc deinit
 }
 public class AppStateChangeListener : TrackerSdk.EventListener {
-  public init(config: TrackerSdk.TrackerConfig, trigger: TrackerSdk.TrackerTriggerConfig, manager: TrackerSdk.TriggerManager)
+  public init(callback: @escaping ((_ args: [Swift.String : Any]?) -> Swift.Void))
   public func initialize()
   public func terminate()
   @objc deinit
@@ -487,6 +549,12 @@ extension TrackerSdk.Reachability.NetworkStatus : Swift.Equatable {}
 extension TrackerSdk.Reachability.NetworkStatus : Swift.Hashable {}
 extension TrackerSdk.Reachability.Connection : Swift.Equatable {}
 extension TrackerSdk.Reachability.Connection : Swift.Hashable {}
+extension TrackerSdk.TransactionResolution : Swift.Equatable {}
+extension TrackerSdk.TransactionResolution : Swift.Hashable {}
+extension TrackerSdk.TransactionResolution : Swift.RawRepresentable {}
+extension TrackerSdk.ComponentType : Swift.Equatable {}
+extension TrackerSdk.ComponentType : Swift.Hashable {}
+extension TrackerSdk.ComponentType : Swift.RawRepresentable {}
 extension TrackerSdk.TypeOfJailBreakCheckAPI : Swift.Equatable {}
 extension TrackerSdk.TypeOfJailBreakCheckAPI : Swift.Hashable {}
 extension TrackerSdk.TiltStatus : Swift.Equatable {}
