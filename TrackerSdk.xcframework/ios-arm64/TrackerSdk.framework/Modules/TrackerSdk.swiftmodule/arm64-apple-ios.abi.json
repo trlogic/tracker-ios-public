@@ -5793,6 +5793,85 @@
               "AccessControl"
             ],
             "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setNativeCallback",
+            "printedName": "setNativeCallback(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(TrackerSdk.NativeTriggerData) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NativeTriggerData",
+                    "printedName": "TrackerSdk.NativeTriggerData",
+                    "usr": "s:10TrackerSdk17NativeTriggerDataC"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10TrackerSdk0A7ContextC17setNativeCallbackyyyAA0E11TriggerDataCcF",
+            "mangledName": "$s10TrackerSdk0A7ContextC17setNativeCallbackyyyAA0E11TriggerDataCcF",
+            "moduleName": "TrackerSdk",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getNativeCallback",
+            "printedName": "getNativeCallback()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "((TrackerSdk.NativeTriggerData) -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(TrackerSdk.NativeTriggerData) -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "NativeTriggerData",
+                        "printedName": "TrackerSdk.NativeTriggerData",
+                        "usr": "s:10TrackerSdk17NativeTriggerDataC"
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10TrackerSdk0A7ContextC17getNativeCallbackyAA0E11TriggerDataCcSgyF",
+            "mangledName": "$s10TrackerSdk0A7ContextC17getNativeCallbackyAA0E11TriggerDataCcSgyF",
+            "moduleName": "TrackerSdk",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
           }
         ],
         "declKind": "Class",
@@ -6633,6 +6712,44 @@
             "declKind": "Func",
             "usr": "s:10TrackerSdk0A7ManagerC20getUserDefinedValuesSDySSypGSgyF",
             "mangledName": "$s10TrackerSdk0A7ManagerC20getUserDefinedValuesSDySSypGSgyF",
+            "moduleName": "TrackerSdk",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setNativeTriggerCallback",
+            "printedName": "setNativeTriggerCallback(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(TrackerSdk.NativeTriggerData) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NativeTriggerData",
+                    "printedName": "TrackerSdk.NativeTriggerData",
+                    "usr": "s:10TrackerSdk17NativeTriggerDataC"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10TrackerSdk0A7ManagerC24setNativeTriggerCallbackyyyAA0eF4DataCcF",
+            "mangledName": "$s10TrackerSdk0A7ManagerC24setNativeTriggerCallbackyyyAA0eF4DataCcF",
             "moduleName": "TrackerSdk",
             "declAttributes": [
               "AccessControl"
@@ -10614,6 +10731,138 @@
         "moduleName": "TrackerSdk",
         "declAttributes": [
           "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "NativeTriggerData",
+        "printedName": "NativeTriggerData",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(type:args:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "NativeTriggerData",
+                "printedName": "TrackerSdk.NativeTriggerData",
+                "usr": "s:10TrackerSdk17NativeTriggerDataC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "TriggerType",
+                "printedName": "TrackerSdk.TriggerType",
+                "usr": "s:10TrackerSdk11TriggerTypeO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.String : Any]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:SD"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:10TrackerSdk17NativeTriggerDataC4type4argsAcA0D4TypeO_SDySSypGtcfc",
+            "mangledName": "$s10TrackerSdk17NativeTriggerDataC4type4argsAcA0D4TypeO_SDySSypGtcfc",
+            "moduleName": "TrackerSdk",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "getType",
+            "printedName": "getType()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "TriggerType",
+                "printedName": "TrackerSdk.TriggerType",
+                "usr": "s:10TrackerSdk11TriggerTypeO"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10TrackerSdk17NativeTriggerDataC7getTypeAA0dG0OyF",
+            "mangledName": "$s10TrackerSdk17NativeTriggerDataC7getTypeAA0dG0OyF",
+            "moduleName": "TrackerSdk",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getArgs",
+            "printedName": "getArgs()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.String : Any]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:SD"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10TrackerSdk17NativeTriggerDataC7getArgsSDySSypGyF",
+            "mangledName": "$s10TrackerSdk17NativeTriggerDataC7getArgsSDySSypGyF",
+            "moduleName": "TrackerSdk",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:10TrackerSdk17NativeTriggerDataC",
+        "mangledName": "$s10TrackerSdk17NativeTriggerDataC",
+        "moduleName": "TrackerSdk",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
         ],
         "conformances": [
           {
@@ -16337,6 +16586,26 @@
           },
           {
             "kind": "Function",
+            "name": "afterInitialize",
+            "printedName": "afterInitialize()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10TrackerSdk15TriggerListenerC15afterInitializeyyF",
+            "mangledName": "$s10TrackerSdk15TriggerListenerC15afterInitializeyyF",
+            "moduleName": "TrackerSdk",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "trigger",
             "printedName": "trigger(_:_:)",
             "children": [
@@ -17155,196 +17424,196 @@
     {
       "filePath": "\/Users\/hasangozum\/Desktop\/trlogic\/tracker-ios\/TrackerSdk\/Core\/Domain\/TrackerConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1912,
+      "offset": 1921,
       "length": 11,
       "value": "\"REACHABLE\""
     },
     {
       "filePath": "\/Users\/hasangozum\/Desktop\/trlogic\/tracker-ios\/TrackerSdk\/Core\/Domain\/TrackerConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1952,
+      "offset": 1961,
       "length": 14,
       "value": "\"NETWORK_TYPE\""
     },
     {
       "filePath": "\/Users\/hasangozum\/Desktop\/trlogic\/tracker-ios\/TrackerSdk\/Core\/Domain\/TrackerConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1993,
+      "offset": 2002,
       "length": 12,
       "value": "\"IP_ADDRESS\""
     },
     {
       "filePath": "\/Users\/hasangozum\/Desktop\/trlogic\/tracker-ios\/TrackerSdk\/Core\/Domain\/TrackerConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2033,
+      "offset": 2042,
       "length": 13,
       "value": "\"MAC_ADDRESS\""
     },
     {
       "filePath": "\/Users\/hasangozum\/Desktop\/trlogic\/tracker-ios\/TrackerSdk\/Core\/Domain\/TrackerConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2070,
+      "offset": 2079,
       "length": 9,
       "value": "\"CARRIER\""
     },
     {
       "filePath": "\/Users\/hasangozum\/Desktop\/trlogic\/tracker-ios\/TrackerSdk\/Core\/Domain\/TrackerConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2105,
+      "offset": 2114,
       "length": 11,
       "value": "\"WIFI_SSID\""
     },
     {
       "filePath": "\/Users\/hasangozum\/Desktop\/trlogic\/tracker-ios\/TrackerSdk\/Core\/Domain\/TrackerConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2139,
+      "offset": 2148,
       "length": 8,
       "value": "\"IS_VPN\""
     },
     {
       "filePath": "\/Users\/hasangozum\/Desktop\/trlogic\/tracker-ios\/TrackerSdk\/Core\/Domain\/TrackerConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2177,
+      "offset": 2195,
       "length": 15,
       "value": "\"CALL_DURATION\""
     },
     {
       "filePath": "\/Users\/hasangozum\/Desktop\/trlogic\/tracker-ios\/TrackerSdk\/Core\/Domain\/TrackerConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2225,
+      "offset": 2243,
       "length": 18,
       "value": "\"CALL_IS_INCOMING\""
     },
     {
       "filePath": "\/Users\/hasangozum\/Desktop\/trlogic\/tracker-ios\/TrackerSdk\/Core\/Domain\/TrackerConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2271,
+      "offset": 2289,
       "length": 13,
       "value": "\"CALL_NUMBER\""
     },
     {
       "filePath": "\/Users\/hasangozum\/Desktop\/trlogic\/tracker-ios\/TrackerSdk\/Core\/Domain\/TrackerConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2311,
+      "offset": 2329,
       "length": 12,
       "value": "\"IS_CONTACT\""
     },
     {
       "filePath": "\/Users\/hasangozum\/Desktop\/trlogic\/tracker-ios\/TrackerSdk\/Core\/Domain\/TrackerConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2355,
+      "offset": 2373,
       "length": 17,
       "value": "\"IS_IN_VOIP_CALL\""
     },
     {
       "filePath": "\/Users\/hasangozum\/Desktop\/trlogic\/tracker-ios\/TrackerSdk\/Core\/Domain\/TrackerConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2399,
+      "offset": 2417,
       "length": 12,
       "value": "\"IS_IN_CALL\""
     },
     {
       "filePath": "\/Users\/hasangozum\/Desktop\/trlogic\/tracker-ios\/TrackerSdk\/Core\/Domain\/TrackerConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2450,
+      "offset": 2477,
       "length": 24,
       "value": "\"SCREEN_RECORD_DURATION\""
     },
     {
       "filePath": "\/Users\/hasangozum\/Desktop\/trlogic\/tracker-ios\/TrackerSdk\/Core\/Domain\/TrackerConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2511,
+      "offset": 2538,
       "length": 22,
       "value": "\"SCREEN_RECORD_STATUS\""
     },
     {
       "filePath": "\/Users\/hasangozum\/Desktop\/trlogic\/tracker-ios\/TrackerSdk\/Core\/Domain\/TrackerConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2569,
+      "offset": 2596,
       "length": 21,
       "value": "\"SCREEN_SHARE_STATUS\""
     },
     {
       "filePath": "\/Users\/hasangozum\/Desktop\/trlogic\/tracker-ios\/TrackerSdk\/Core\/Domain\/TrackerConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2628,
+      "offset": 2655,
       "length": 23,
       "value": "\"SCREEN_SHARE_DURATION\""
     },
     {
       "filePath": "\/Users\/hasangozum\/Desktop\/trlogic\/tracker-ios\/TrackerSdk\/Core\/Domain\/TrackerConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2682,
+      "offset": 2718,
       "length": 16,
       "value": "\"LAST_KNOWN_LAT\""
     },
     {
       "filePath": "\/Users\/hasangozum\/Desktop\/trlogic\/tracker-ios\/TrackerSdk\/Core\/Domain\/TrackerConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2729,
+      "offset": 2765,
       "length": 16,
       "value": "\"LAST_KNOWN_LON\""
     },
     {
       "filePath": "\/Users\/hasangozum\/Desktop\/trlogic\/tracker-ios\/TrackerSdk\/Core\/Domain\/TrackerConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2781,
+      "offset": 2826,
       "length": 21,
       "value": "\"CUSTOM_TRIGGER_ARGS\""
     },
     {
       "filePath": "\/Users\/hasangozum\/Desktop\/trlogic\/tracker-ios\/TrackerSdk\/Core\/Domain\/TrackerConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2825,
+      "offset": 2879,
       "length": 8,
       "value": "\"GYRO_X\""
     },
     {
       "filePath": "\/Users\/hasangozum\/Desktop\/trlogic\/tracker-ios\/TrackerSdk\/Core\/Domain\/TrackerConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2856,
+      "offset": 2910,
       "length": 8,
       "value": "\"GYRO_Y\""
     },
     {
       "filePath": "\/Users\/hasangozum\/Desktop\/trlogic\/tracker-ios\/TrackerSdk\/Core\/Domain\/TrackerConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2887,
+      "offset": 2941,
       "length": 8,
       "value": "\"GYRO_Z\""
     },
     {
       "filePath": "\/Users\/hasangozum\/Desktop\/trlogic\/tracker-ios\/TrackerSdk\/Core\/Domain\/TrackerConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2923,
+      "offset": 2977,
       "length": 13,
       "value": "\"TILT_STATUS\""
     },
     {
       "filePath": "\/Users\/hasangozum\/Desktop\/trlogic\/tracker-ios\/TrackerSdk\/Core\/Domain\/TrackerConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2973,
+      "offset": 3032,
       "length": 22,
       "value": "\"CURRENT_TRIGGER_NAME\""
     },
     {
       "filePath": "\/Users\/hasangozum\/Desktop\/trlogic\/tracker-ios\/TrackerSdk\/Core\/Domain\/TrackerConfig.swift",
       "kind": "StringLiteral",
-      "offset": 3024,
+      "offset": 3083,
       "length": 14,
       "value": "\"CONTACT_LIST\""
     },
     {
       "filePath": "\/Users\/hasangozum\/Desktop\/trlogic\/tracker-ios\/TrackerSdk\/Core\/Domain\/TrackerConfig.swift",
       "kind": "StringLiteral",
-      "offset": 3063,
+      "offset": 3122,
       "length": 10,
       "value": "\"APP_LIST\""
     },
     {
       "filePath": "\/Users\/hasangozum\/Desktop\/trlogic\/tracker-ios\/TrackerSdk\/Core\/Domain\/TrackerConfig.swift",
       "kind": "StringLiteral",
-      "offset": 3098,
+      "offset": 3157,
       "length": 10,
       "value": "\"PLATFORM\""
     },

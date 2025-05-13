@@ -167,6 +167,8 @@ public class TrackerContext {
   public func getLocationDataObtainer() -> TrackerSdk.LocationDataObtainer
   public func getMotionDataObtainer() -> TrackerSdk.MotionDataObtainer
   public func getContactDataObtainer() -> TrackerSdk.ContactDataObtainer
+  public func setNativeCallback(_ callback: @escaping (_ data: TrackerSdk.NativeTriggerData) -> Swift.Void)
+  public func getNativeCallback() -> ((_ data: TrackerSdk.NativeTriggerData) -> Swift.Void)?
   @objc deinit
 }
 public class TransactionMapper {
@@ -195,6 +197,7 @@ public class TrackerManager {
   public func triggerCustomEventSync(name: Swift.String, args: [Swift.String : Any], callback: @escaping TrackerSdk.ClientCallback<TrackerSdk.GenericResponse<TrackerSdk.TransactionSubmitResult>>)
   public func setUserDefinedValues(key: Swift.String, value: Any)
   public func getUserDefinedValues() -> [Swift.String : Any]?
+  public func setNativeTriggerCallback(_ callback: @escaping (_ data: TrackerSdk.NativeTriggerData) -> Swift.Void)
   @objc deinit
 }
 @_hasMissingDesignatedInitializers public class ContactDataObtainer {
@@ -350,6 +353,12 @@ public class NetworkObserver {
   public func isReachable() -> Swift.Bool
   public func getConnectionType() -> Swift.String?
   public func terminate()
+  @objc deinit
+}
+public class NativeTriggerData {
+  public init(type: TrackerSdk.TriggerType, args: [Swift.String : Any])
+  public func getType() -> TrackerSdk.TriggerType
+  public func getArgs() -> [Swift.String : Any]
   @objc deinit
 }
 public class DeviceDataObtainer {
@@ -523,6 +532,7 @@ public typealias ClientCallback<T> = (_ value: T) -> Swift.Void
 public class TriggerListener : TrackerSdk.EventListener {
   public init(context: TrackerSdk.TrackerContext)
   public func initialize()
+  public func afterInitialize()
   public func trigger(_ type: TrackerSdk.TriggerType, _ args: [Swift.String : Any]?)
   public func triggerCustom(name: Swift.String, args: [Swift.String : Any], callback: TrackerSdk.ClientCallback<TrackerSdk.GenericResponse<TrackerSdk.TransactionSubmitResult>>?)
   public func terminate()
