@@ -194,7 +194,7 @@ public class TrackerManager {
   public func terminate()
   public func getContext() -> TrackerSdk.TrackerContext
   public func triggerCustomEvent(name: Swift.String, args: [Swift.String : Any])
-  public func triggerCustomEventSync(name: Swift.String, args: [Swift.String : Any], callback: @escaping TrackerSdk.ClientCallback<TrackerSdk.GenericResponse<TrackerSdk.TransactionSubmitResult>>)
+  public func triggerCustomEventSync(name: Swift.String, args: [Swift.String : Any], callback: @escaping TrackerSdk.ClientCallback<TrackerSdk.GenericResponse<TrackerSdk.TransactionSubmitResult>>, requestConfig: TrackerSdk.RequestConfig?)
   public func setUserDefinedValues(key: Swift.String, value: Any)
   public func getUserDefinedValues() -> [Swift.String : Any]?
   public func setNativeTriggerCallback(_ callback: @escaping (_ data: TrackerSdk.NativeTriggerData) -> Swift.Void)
@@ -343,6 +343,11 @@ extension TrackerSdk.Reachability {
     get
   }
 }
+public class RequestConfig {
+  public init(timeout: Swift.Int)
+  public func getTimeoutInSecond() -> Swift.Double
+  @objc deinit
+}
 public struct TrackerConfigResponse : Swift.Decodable {
   public var configs: [TrackerSdk.TrackerConfig]
   public var transactionApiUrl: Swift.String
@@ -485,7 +490,7 @@ public class ScreenRecordListener : TrackerSdk.EventListener {
 }
 public class TransactionGateway {
   public init()
-  public func send(_ transaction: TrackerSdk.TrackerEventPayload, _ callback: (TrackerSdk.ClientCallback<TrackerSdk.GenericResponse<TrackerSdk.TransactionSubmitResult>>)?)
+  public func send(_ transaction: TrackerSdk.TrackerEventPayload, _ callback: (TrackerSdk.ClientCallback<TrackerSdk.GenericResponse<TrackerSdk.TransactionSubmitResult>>)?, _ config: TrackerSdk.RequestConfig?)
   @objc deinit
 }
 public class MotionDataObtainer {
@@ -528,13 +533,15 @@ public class DataStore {
 public struct AnyDecodable : Swift.Decodable {
   public init(from decoder: any Swift.Decoder) throws
 }
-public typealias ClientCallback<T> = (_ value: T) -> Swift.Void
+public typealias ClientCallback<T> = (_ value: Swift.Result<T, any Swift.Error>) -> Swift.Void
+public typealias InternalClientCallback<T> = (_ value: T) -> Swift.Void
 public class TriggerListener : TrackerSdk.EventListener {
   public init(context: TrackerSdk.TrackerContext)
   public func initialize()
   public func afterInitialize()
   public func trigger(_ type: TrackerSdk.TriggerType, _ args: [Swift.String : Any]?)
-  public func triggerCustom(name: Swift.String, args: [Swift.String : Any], callback: TrackerSdk.ClientCallback<TrackerSdk.GenericResponse<TrackerSdk.TransactionSubmitResult>>?)
+  public func triggerCustom(name: Swift.String, args: [Swift.String : Any])
+  public func triggerCustomSync(name: Swift.String, args: [Swift.String : Any], callback: @escaping TrackerSdk.ClientCallback<TrackerSdk.GenericResponse<TrackerSdk.TransactionSubmitResult>>, config: TrackerSdk.RequestConfig?)
   public func terminate()
   @objc deinit
 }

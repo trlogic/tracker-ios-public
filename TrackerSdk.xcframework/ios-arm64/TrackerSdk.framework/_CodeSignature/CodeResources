@@ -14,19 +14,19 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		HW8ClVplUF0q3FVbr2ojn5r1QeI=
+		fMDGiK91ocGBhYwkrgKpJ/J13FI=
 		</data>
 		<key>Modules/TrackerSdk.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
 		<data>
-		xoFsN36+QUIMzuejh4kuR17B6u8=
+		w4KGpsMkOzcJ7Or4+83qtMqLFjw=
 		</data>
 		<key>Modules/TrackerSdk.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
-		msvwOXC4gaGsRD45ADbO7LhHm5U=
+		bDkUs/FcVppSykc/F8YRKcL+i9I=
 		</data>
 		<key>Modules/TrackerSdk.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<data>
-		Sw88ZIXgDmOhaQQqjJmQlORKI8I=
+		rvHH9uCLUtL5+ozi/VGzXE+Fezg=
 		</data>
 		<key>Modules/TrackerSdk.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
@@ -34,11 +34,11 @@
 		</data>
 		<key>Modules/TrackerSdk.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		Sw88ZIXgDmOhaQQqjJmQlORKI8I=
+		rvHH9uCLUtL5+ozi/VGzXE+Fezg=
 		</data>
 		<key>Modules/TrackerSdk.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		1OUtzAhnTPMlKPqpq3HDI3dGITU=
+		VgmYlvnKlaO0DNEzQCJtyn9ZGQw=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -65,21 +65,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			jRMbI1p2OuuyV4VjEAeKNjzjp7ykbC6FtmqT1axtrf0=
+			kvc8z8gsW76UxGOSKMFsb0+86WOpNX/XKiEfyIgJQio=
 			</data>
 		</dict>
 		<key>Modules/TrackerSdk.swiftmodule/arm64-apple-ios.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Cp3q6j7grQGM21iscbKTFoZvJ7ga6VGfQbkAsb1RBAM=
+			m3H2LRy1XcqSwzs1IxWfynS94vxLMZqJwHEF+OJIXbI=
 			</data>
 		</dict>
 		<key>Modules/TrackerSdk.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			aK4B6rWCKdn35bl+mXE3Hg0ZFXO/P1lZLxQf4b9Ruew=
+			oPCdY5K9v4rldGWpr8LbbnGh4D3HlMfYR3G7PuEvYZc=
 			</data>
 		</dict>
 		<key>Modules/TrackerSdk.swiftmodule/arm64-apple-ios.swiftdoc</key>
@@ -93,14 +93,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			aK4B6rWCKdn35bl+mXE3Hg0ZFXO/P1lZLxQf4b9Ruew=
+			oPCdY5K9v4rldGWpr8LbbnGh4D3HlMfYR3G7PuEvYZc=
 			</data>
 		</dict>
 		<key>Modules/TrackerSdk.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			5f2gANtRiftYAKlQJo14HTZV6eLJzWm/3eevesxNOig=
+			m26jkMFO7mwPspKgZ1UzWs/dMd8JTHTXfur1fwfDncA=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

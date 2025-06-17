@@ -6577,7 +6577,7 @@
           {
             "kind": "Function",
             "name": "triggerCustomEventSync",
-            "printedName": "triggerCustomEventSync(name:args:callback:)",
+            "printedName": "triggerCustomEventSync(name:args:callback:requestConfig:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -6612,7 +6612,7 @@
               {
                 "kind": "TypeFunc",
                 "name": "Function",
-                "printedName": "(TrackerSdk.GenericResponse<TrackerSdk.TransactionSubmitResult>) -> ()",
+                "printedName": "(Swift.Result<TrackerSdk.GenericResponse<TrackerSdk.TransactionSubmitResult>, any Swift.Error>) -> ()",
                 "children": [
                   {
                     "kind": "TypeNominal",
@@ -6621,24 +6621,52 @@
                   },
                   {
                     "kind": "TypeNominal",
-                    "name": "GenericResponse",
-                    "printedName": "TrackerSdk.GenericResponse<TrackerSdk.TransactionSubmitResult>",
+                    "name": "Result",
+                    "printedName": "Swift.Result<TrackerSdk.GenericResponse<TrackerSdk.TransactionSubmitResult>, any Swift.Error>",
                     "children": [
                       {
                         "kind": "TypeNominal",
-                        "name": "TransactionSubmitResult",
-                        "printedName": "TrackerSdk.TransactionSubmitResult",
-                        "usr": "s:10TrackerSdk23TransactionSubmitResultV"
+                        "name": "GenericResponse",
+                        "printedName": "TrackerSdk.GenericResponse<TrackerSdk.TransactionSubmitResult>",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "TransactionSubmitResult",
+                            "printedName": "TrackerSdk.TransactionSubmitResult",
+                            "usr": "s:10TrackerSdk23TransactionSubmitResultV"
+                          }
+                        ],
+                        "usr": "s:10TrackerSdk15GenericResponseV"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Error",
+                        "printedName": "any Swift.Error",
+                        "usr": "s:s5ErrorP"
                       }
                     ],
-                    "usr": "s:10TrackerSdk15GenericResponseV"
+                    "usr": "s:s6ResultO"
                   }
                 ]
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "TrackerSdk.RequestConfig?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RequestConfig",
+                    "printedName": "TrackerSdk.RequestConfig",
+                    "usr": "s:10TrackerSdk13RequestConfigC"
+                  }
+                ],
+                "usr": "s:Sq"
               }
             ],
             "declKind": "Func",
-            "usr": "s:10TrackerSdk0A7ManagerC22triggerCustomEventSync4name4args8callbackySS_SDySSypGyAA15GenericResponseVyAA23TransactionSubmitResultVGctF",
-            "mangledName": "$s10TrackerSdk0A7ManagerC22triggerCustomEventSync4name4args8callbackySS_SDySSypGyAA15GenericResponseVyAA23TransactionSubmitResultVGctF",
+            "usr": "s:10TrackerSdk0A7ManagerC22triggerCustomEventSync4name4args8callback13requestConfigySS_SDySSypGys6ResultOyAA15GenericResponseVyAA017TransactionSubmitM0VGs5Error_pGcAA07RequestL0CSgtF",
+            "mangledName": "$s10TrackerSdk0A7ManagerC22triggerCustomEventSync4name4args8callback13requestConfigySS_SDySSypGys6ResultOyAA15GenericResponseVyAA017TransactionSubmitM0VGs5Error_pGcAA07RequestL0CSgtF",
             "moduleName": "TrackerSdk",
             "declAttributes": [
               "AccessControl"
@@ -10329,6 +10357,85 @@
         "moduleName": "TrackerSdk",
         "declAttributes": [
           "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "RequestConfig",
+        "printedName": "RequestConfig",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(timeout:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RequestConfig",
+                "printedName": "TrackerSdk.RequestConfig",
+                "usr": "s:10TrackerSdk13RequestConfigC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:10TrackerSdk13RequestConfigC7timeoutACSi_tcfc",
+            "mangledName": "$s10TrackerSdk13RequestConfigC7timeoutACSi_tcfc",
+            "moduleName": "TrackerSdk",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "getTimeoutInSecond",
+            "printedName": "getTimeoutInSecond()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "usr": "s:Sd"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10TrackerSdk13RequestConfigC18getTimeoutInSecondSdyF",
+            "mangledName": "$s10TrackerSdk13RequestConfigC18getTimeoutInSecondSdyF",
+            "moduleName": "TrackerSdk",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:10TrackerSdk13RequestConfigC",
+        "mangledName": "$s10TrackerSdk13RequestConfigC",
+        "moduleName": "TrackerSdk",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
         ],
         "conformances": [
           {
@@ -15514,7 +15621,7 @@
           {
             "kind": "Function",
             "name": "send",
-            "printedName": "send(_:_:)",
+            "printedName": "send(_:_:_:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -15530,12 +15637,12 @@
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "((TrackerSdk.GenericResponse<TrackerSdk.TransactionSubmitResult>) -> ())?",
+                "printedName": "((Swift.Result<TrackerSdk.GenericResponse<TrackerSdk.TransactionSubmitResult>, any Swift.Error>) -> ())?",
                 "children": [
                   {
                     "kind": "TypeFunc",
                     "name": "Function",
-                    "printedName": "(TrackerSdk.GenericResponse<TrackerSdk.TransactionSubmitResult>) -> ()",
+                    "printedName": "(Swift.Result<TrackerSdk.GenericResponse<TrackerSdk.TransactionSubmitResult>, any Swift.Error>) -> ()",
                     "children": [
                       {
                         "kind": "TypeNominal",
@@ -15544,27 +15651,55 @@
                       },
                       {
                         "kind": "TypeNominal",
-                        "name": "GenericResponse",
-                        "printedName": "TrackerSdk.GenericResponse<TrackerSdk.TransactionSubmitResult>",
+                        "name": "Result",
+                        "printedName": "Swift.Result<TrackerSdk.GenericResponse<TrackerSdk.TransactionSubmitResult>, any Swift.Error>",
                         "children": [
                           {
                             "kind": "TypeNominal",
-                            "name": "TransactionSubmitResult",
-                            "printedName": "TrackerSdk.TransactionSubmitResult",
-                            "usr": "s:10TrackerSdk23TransactionSubmitResultV"
+                            "name": "GenericResponse",
+                            "printedName": "TrackerSdk.GenericResponse<TrackerSdk.TransactionSubmitResult>",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "TransactionSubmitResult",
+                                "printedName": "TrackerSdk.TransactionSubmitResult",
+                                "usr": "s:10TrackerSdk23TransactionSubmitResultV"
+                              }
+                            ],
+                            "usr": "s:10TrackerSdk15GenericResponseV"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Error",
+                            "printedName": "any Swift.Error",
+                            "usr": "s:s5ErrorP"
                           }
                         ],
-                        "usr": "s:10TrackerSdk15GenericResponseV"
+                        "usr": "s:s6ResultO"
                       }
                     ]
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "TrackerSdk.RequestConfig?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RequestConfig",
+                    "printedName": "TrackerSdk.RequestConfig",
+                    "usr": "s:10TrackerSdk13RequestConfigC"
                   }
                 ],
                 "usr": "s:Sq"
               }
             ],
             "declKind": "Func",
-            "usr": "s:10TrackerSdk18TransactionGatewayC4sendyyAA0A12EventPayloadV_yAA15GenericResponseVyAA0C12SubmitResultVGcSgtF",
-            "mangledName": "$s10TrackerSdk18TransactionGatewayC4sendyyAA0A12EventPayloadV_yAA15GenericResponseVyAA0C12SubmitResultVGcSgtF",
+            "usr": "s:10TrackerSdk18TransactionGatewayC4sendyyAA0A12EventPayloadV_ys6ResultOyAA15GenericResponseVyAA0c6SubmitH0VGs5Error_pGcSgAA13RequestConfigCSgtF",
+            "mangledName": "$s10TrackerSdk18TransactionGatewayC4sendyyAA0A12EventPayloadV_ys6ResultOyAA15GenericResponseVyAA0c6SubmitH0VGs5Error_pGcSgAA13RequestConfigCSgtF",
             "moduleName": "TrackerSdk",
             "declAttributes": [
               "AccessControl"
@@ -16660,7 +16795,52 @@
           {
             "kind": "Function",
             "name": "triggerCustom",
-            "printedName": "triggerCustom(name:args:callback:)",
+            "printedName": "triggerCustom(name:args:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.String : Any]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:SD"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10TrackerSdk15TriggerListenerC13triggerCustom4name4argsySS_SDySSypGtF",
+            "mangledName": "$s10TrackerSdk15TriggerListenerC13triggerCustom4name4argsySS_SDySSypGtF",
+            "moduleName": "TrackerSdk",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "triggerCustomSync",
+            "printedName": "triggerCustomSync(name:args:callback:config:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -16693,20 +16873,20 @@
                 "usr": "s:SD"
               },
               {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "((TrackerSdk.GenericResponse<TrackerSdk.TransactionSubmitResult>) -> ())?",
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.Result<TrackerSdk.GenericResponse<TrackerSdk.TransactionSubmitResult>, any Swift.Error>) -> ()",
                 "children": [
                   {
-                    "kind": "TypeFunc",
-                    "name": "Function",
-                    "printedName": "(TrackerSdk.GenericResponse<TrackerSdk.TransactionSubmitResult>) -> ()",
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Result",
+                    "printedName": "Swift.Result<TrackerSdk.GenericResponse<TrackerSdk.TransactionSubmitResult>, any Swift.Error>",
                     "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Void",
-                        "printedName": "()"
-                      },
                       {
                         "kind": "TypeNominal",
                         "name": "GenericResponse",
@@ -16720,16 +16900,36 @@
                           }
                         ],
                         "usr": "s:10TrackerSdk15GenericResponseV"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Error",
+                        "printedName": "any Swift.Error",
+                        "usr": "s:s5ErrorP"
                       }
-                    ]
+                    ],
+                    "usr": "s:s6ResultO"
+                  }
+                ]
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "TrackerSdk.RequestConfig?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RequestConfig",
+                    "printedName": "TrackerSdk.RequestConfig",
+                    "usr": "s:10TrackerSdk13RequestConfigC"
                   }
                 ],
                 "usr": "s:Sq"
               }
             ],
             "declKind": "Func",
-            "usr": "s:10TrackerSdk15TriggerListenerC13triggerCustom4name4args8callbackySS_SDySSypGyAA15GenericResponseVyAA23TransactionSubmitResultVGcSgtF",
-            "mangledName": "$s10TrackerSdk15TriggerListenerC13triggerCustom4name4args8callbackySS_SDySSypGyAA15GenericResponseVyAA23TransactionSubmitResultVGcSgtF",
+            "usr": "s:10TrackerSdk15TriggerListenerC17triggerCustomSync4name4args8callback6configySS_SDySSypGys6ResultOyAA15GenericResponseVyAA017TransactionSubmitL0VGs5Error_pGcAA13RequestConfigCSgtF",
+            "mangledName": "$s10TrackerSdk15TriggerListenerC17triggerCustomSync4name4args8callback6configySS_SDySSypGys6ResultOyAA15GenericResponseVyAA017TransactionSubmitL0VGs5Error_pGcAA13RequestConfigCSgtF",
             "moduleName": "TrackerSdk",
             "declAttributes": [
               "AccessControl"
@@ -19608,28 +19808,28 @@
     {
       "filePath": "\/Users\/hasangozum\/Desktop\/trlogic\/tracker-ios\/TrackerSdk\/Core\/Trigger\/TriggerListener.swift",
       "kind": "Dictionary",
-      "offset": 359,
+      "offset": 439,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/hasangozum\/Desktop\/trlogic\/tracker-ios\/TrackerSdk\/Core\/Trigger\/TriggerListener.swift",
       "kind": "Dictionary",
-      "offset": 442,
+      "offset": 522,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/hasangozum\/Desktop\/trlogic\/tracker-ios\/TrackerSdk\/Core\/Trigger\/TriggerListener.swift",
       "kind": "Dictionary",
-      "offset": 518,
+      "offset": 598,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/hasangozum\/Desktop\/trlogic\/tracker-ios\/TrackerSdk\/Core\/Trigger\/TriggerListener.swift",
       "kind": "Array",
-      "offset": 572,
+      "offset": 652,
       "length": 2,
       "value": "[]"
     }
