@@ -1,6 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.0 effective-5.10 (swiftlang-6.0.0.9.10 clang-1600.0.26.2)
-// swift-module-flags: -target arm64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name TrackerSdk
+// swift-compiler-version: Apple Swift version 6.1.2 effective-5.10 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
+// swift-module-flags: -target arm64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name TrackerSdk
+// swift-module-flags-ignorable:  -interface-compiler-version 6.1.2
 import CallKit
 import SystemConfiguration.CaptiveNetwork
 import Contacts
@@ -210,13 +211,13 @@ public struct ContactData : Swift.Decodable {
 public class ScreenShareListener : TrackerSdk.EventListener {
   public static let SHARE_DURATION_ARG_NAME: Swift.String
   public static let SHARE_STATUS_ARG_NAME: Swift.String
-  public init(type: TrackerSdk.TriggerType, callback: @escaping ((_ args: [Swift.String : Any]?) -> Swift.Void))
+  public init(type: TrackerSdk.TriggerType, callback: @escaping (_ args: [Swift.String : Any]?) -> Swift.Void)
   public func initialize()
   public func terminate()
   @objc deinit
 }
 public class ApplicationOpenListener : TrackerSdk.EventListener {
-  public init(type: TrackerSdk.TriggerType, callback: @escaping ((_ args: [Swift.String : Any]?) -> Swift.Void))
+  public init(type: TrackerSdk.TriggerType, callback: @escaping (_ args: [Swift.String : Any]?) -> Swift.Void)
   public func initialize()
   public func terminate()
   @objc deinit
@@ -251,13 +252,13 @@ public enum TriggerType : Swift.String, Swift.Decodable {
   }
 }
 public class NetworkChangeListener : TrackerSdk.EventListener {
-  public init(type: TrackerSdk.TriggerType, callback: @escaping ((_ args: [Swift.String : Any]?) -> Swift.Void))
+  public init(type: TrackerSdk.TriggerType, callback: @escaping (_ args: [Swift.String : Any]?) -> Swift.Void)
   public func initialize()
   public func terminate()
   @objc deinit
 }
 public class CallListener : TrackerSdk.EventListener {
-  public init(type: TrackerSdk.TriggerType, callback: @escaping ((_ args: [Swift.String : Any]?) -> Swift.Void))
+  public init(type: TrackerSdk.TriggerType, callback: @escaping (_ args: [Swift.String : Any]?) -> Swift.Void)
   public func initialize()
   public func terminate()
   @objc deinit
@@ -483,14 +484,14 @@ public class JailbreakDataObtainer : TrackerSdk.Check_Method_Of_JailBreak {
 public class ScreenRecordListener : TrackerSdk.EventListener {
   public static let IS_RECORDED_ARG_NAME: Swift.String
   public static let RECORD_DURATION_ARG_NAME: Swift.String
-  public init(type: TrackerSdk.TriggerType, callback: @escaping ((_ args: [Swift.String : Any]?) -> Swift.Void))
+  public init(type: TrackerSdk.TriggerType, callback: @escaping (_ args: [Swift.String : Any]?) -> Swift.Void)
   public func initialize()
   public func terminate()
   @objc deinit
 }
 public class TransactionGateway {
   public init()
-  public func send(_ transaction: TrackerSdk.TrackerEventPayload, _ callback: (TrackerSdk.ClientCallback<TrackerSdk.GenericResponse<TrackerSdk.TransactionSubmitResult>>)?, _ config: TrackerSdk.RequestConfig?)
+  public func send(_ transaction: TrackerSdk.TrackerEventPayload, _ callback: TrackerSdk.ClientCallback<TrackerSdk.GenericResponse<TrackerSdk.TransactionSubmitResult>>?, _ config: TrackerSdk.RequestConfig?)
   @objc deinit
 }
 public class MotionDataObtainer {
@@ -546,7 +547,7 @@ public class TriggerListener : TrackerSdk.EventListener {
   @objc deinit
 }
 public class AppStateChangeListener : TrackerSdk.EventListener {
-  public init(callback: @escaping ((_ args: [Swift.String : Any]?) -> Swift.Void))
+  public init(callback: @escaping (_ args: [Swift.String : Any]?) -> Swift.Void)
   public func initialize()
   public func terminate()
   @objc deinit

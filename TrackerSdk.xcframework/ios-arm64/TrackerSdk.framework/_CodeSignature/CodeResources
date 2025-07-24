@@ -14,31 +14,31 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		fMDGiK91ocGBhYwkrgKpJ/J13FI=
+		l5PeP2nHnqvIYC2tMdt/a4D4sRU=
 		</data>
 		<key>Modules/TrackerSdk.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
 		<data>
-		w4KGpsMkOzcJ7Or4+83qtMqLFjw=
+		5eT+625TDhgcOcIZWgc8CxAxb1I=
 		</data>
 		<key>Modules/TrackerSdk.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
-		bDkUs/FcVppSykc/F8YRKcL+i9I=
+		2WfD7lExjvWYZ83dMGTvFFkKHnQ=
 		</data>
 		<key>Modules/TrackerSdk.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<data>
-		rvHH9uCLUtL5+ozi/VGzXE+Fezg=
+		CvJRd0X3oTp48meoXoGHhTtm6pc=
 		</data>
 		<key>Modules/TrackerSdk.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		dGX0RhhRSA2EWMeBvYmlzZWIkIk=
+		ptGldgga1XcegYHhkMMzglBTyYo=
 		</data>
 		<key>Modules/TrackerSdk.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		rvHH9uCLUtL5+ozi/VGzXE+Fezg=
+		CvJRd0X3oTp48meoXoGHhTtm6pc=
 		</data>
 		<key>Modules/TrackerSdk.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		VgmYlvnKlaO0DNEzQCJtyn9ZGQw=
+		oGV9iOQM8YROc8/ZOwq7bQKEROw=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -65,42 +65,42 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			kvc8z8gsW76UxGOSKMFsb0+86WOpNX/XKiEfyIgJQio=
+			NUKLd/3FrdLllhZgAUA/pJRxrT9DrRSy1iULBEUkVLE=
 			</data>
 		</dict>
 		<key>Modules/TrackerSdk.swiftmodule/arm64-apple-ios.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			m3H2LRy1XcqSwzs1IxWfynS94vxLMZqJwHEF+OJIXbI=
+			VTsVKm26qNABArSkQlCsKtISSU67ODvJW/QSOdEe0j4=
 			</data>
 		</dict>
 		<key>Modules/TrackerSdk.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			oPCdY5K9v4rldGWpr8LbbnGh4D3HlMfYR3G7PuEvYZc=
+			2I/Zkf8kcNIfc6AgcE/ybUZK+jVArjspdAZEKfwe8Jo=
 			</data>
 		</dict>
 		<key>Modules/TrackerSdk.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			K9k1ssgfb0VvRfXWXG5oPadqpeadbd7p1TlyHuxw6aI=
+			lXm59adBI8Re68r/dhYtxM1ifQgqhW5w8fmUAiYUtSk=
 			</data>
 		</dict>
 		<key>Modules/TrackerSdk.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			oPCdY5K9v4rldGWpr8LbbnGh4D3HlMfYR3G7PuEvYZc=
+			2I/Zkf8kcNIfc6AgcE/ybUZK+jVArjspdAZEKfwe8Jo=
 			</data>
 		</dict>
 		<key>Modules/TrackerSdk.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			m26jkMFO7mwPspKgZ1UzWs/dMd8JTHTXfur1fwfDncA=
+			OXZJuKWPFRa2CznXYz/NdJZEAWsn5v3SxVJlskwtViQ=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
