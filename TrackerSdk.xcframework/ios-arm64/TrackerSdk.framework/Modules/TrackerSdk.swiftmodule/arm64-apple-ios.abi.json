@@ -6243,7 +6243,8 @@
             "mangledName": "$s10TrackerSdk19NetworkDataObtainerC10getCarrierSSSgyF",
             "moduleName": "TrackerSdk",
             "declAttributes": [
-              "AccessControl"
+              "AccessControl",
+              "RawDocComment"
             ],
             "funcSelfKind": "NonMutating"
           },
@@ -18873,6 +18874,27 @@
       "offset": 353,
       "length": 2,
       "value": "10"
+    },
+    {
+      "filePath": "\/Users\/anoktaz\/Projects\/tracker-sdk\/tracker-ios\/TrackerSdk\/Core\/DataObtainer\/NetworkDataObtainer.swift",
+      "kind": "StringLiteral",
+      "offset": 376,
+      "length": 18,
+      "value": "\"tracker.ip.queue\""
+    },
+    {
+      "filePath": "\/Users\/anoktaz\/Projects\/tracker-sdk\/tracker-ios\/TrackerSdk\/Core\/DataObtainer\/NetworkDataObtainer.swift",
+      "kind": "IntegerLiteral",
+      "offset": 493,
+      "length": 2,
+      "value": "60"
+    },
+    {
+      "filePath": "\/Users\/anoktaz\/Projects\/tracker-sdk\/tracker-ios\/TrackerSdk\/Core\/DataObtainer\/NetworkDataObtainer.swift",
+      "kind": "IntegerLiteral",
+      "offset": 498,
+      "length": 1,
+      "value": "5"
     },
     {
       "filePath": "\/Users\/anoktaz\/Projects\/tracker-sdk\/tracker-ios\/TrackerSdk\/Vendor\/DeviceModel.swift",
