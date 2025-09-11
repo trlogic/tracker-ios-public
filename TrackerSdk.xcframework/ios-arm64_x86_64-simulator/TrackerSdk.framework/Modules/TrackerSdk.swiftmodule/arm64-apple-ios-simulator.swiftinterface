@@ -4,15 +4,19 @@
 // swift-module-flags-ignorable:  -interface-compiler-version 6.1.2
 import CallKit
 import SystemConfiguration.CaptiveNetwork
+import Combine
+import CommonCrypto
 import Contacts
 import CoreLocation
 import CoreMotion
 import CoreTelephony
+import CryptoKit
 import Darwin
 import DeviceActivity
 import Foundation
 import MachO
 import Network
+import Security
 import SensorKit
 import Swift
 import SystemConfiguration
@@ -142,6 +146,12 @@ public enum TrackerVariableType : Swift.String, Swift.Decodable {
   case TIME_ZONE
   case UNIQUE_DEVICE_ID
   case WIFI_SSID
+  case APP_SIGNATURE_HASH
+  case SIM_SERIAL_HASH
+  case IS_DEBUGGER_ATTACHED
+  case REMOTE_SESSION_STATUS
+  case RUNTIME_TAMPERED
+  case BACKGROUND_SERVICES
   public init?(rawValue: Swift.String)
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
@@ -170,6 +180,7 @@ public class TrackerManager {
   public var isInitialized: Swift.Bool {
     get
   }
+  public func initialize(apiKey: Swift.String, serviceUrl: Swift.String, tenant: Swift.String, spkiPins: [Swift.String]? = nil, onReady: (() -> Swift.Void)?)
   public func initialize(apiKey: Swift.String, serviceUrl: Swift.String, tenant: Swift.String, onReady: (() -> Swift.Void)?)
   public func terminate()
   public func getContext() -> TrackerSdk.TrackerContext
@@ -179,6 +190,7 @@ public class TrackerManager {
   public func getUserDefinedValues() -> [Swift.String : Any]?
   public func setNativeTriggerCallback(_ callback: @escaping (_ data: TrackerSdk.NativeTriggerData) -> Swift.Void)
   public func removeNativeTriggerCallback()
+  public func debugTrigger(_ type: TrackerSdk.TriggerType)
   @objc deinit
 }
 @_hasMissingDesignatedInitializers public class ContactDataObtainer {
@@ -227,6 +239,10 @@ public enum TriggerType : Swift.String, Swift.Decodable {
   case THEME_CHANGE
   case VOIP_CALL_END
   case VOIP_CALL_START
+  case DEBUGGER_ATTACHED
+  case DEBUGGER_DETACHED
+  case SIM_CARD_CHANGE
+  case TAMPER_DETECTED
   public init?(rawValue: Swift.String)
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
@@ -243,11 +259,6 @@ public class CallListener : TrackerSdk.EventListener {
   public init(type: TrackerSdk.TriggerType, callback: @escaping (_ args: [Swift.String : Any]?) -> Swift.Void)
   public func initialize()
   public func terminate()
-  @objc deinit
-}
-public class TransactionMapper {
-  public init(context: TrackerSdk.TrackerContext, config: TrackerSdk.TrackerConfig)
-  public func execute(_ config: TrackerSdk.TrackerTriggerConfig, _ args: [Swift.String : Any]?) -> TrackerSdk.TrackerEventPayload?
   @objc deinit
 }
 public enum ReachabilityError : Swift.Error {
@@ -342,36 +353,6 @@ public struct AnyCodable : Swift.Codable {
   public init(from decoder: any Swift.Decoder) throws
   public func encode(to encoder: any Swift.Encoder) throws
 }
-public class TrackerContext {
-  public static var shared: TrackerSdk.TrackerContext
-  public init()
-  public func initialize(apiKey: Swift.String, serviceUrl: Swift.String, tenant: Swift.String)
-  public func setConfig(_ config: TrackerSdk.TrackerConfigResponse)
-  public func getConfig() -> TrackerSdk.TrackerConfigResponse?
-  public func getApiKey() -> Swift.String
-  public func getServiceUrl() -> Swift.String
-  public func getTenant() -> Swift.String
-  public func getDeviceDataObtainer() -> TrackerSdk.DeviceDataObtainer
-  public func getNetworkDataObtainer() -> TrackerSdk.NetworkDataObtainer
-  public func getNetworkListener() -> TrackerSdk.NetworkObserver
-  public func getTransactionGateway() -> TrackerSdk.TransactionGateway?
-  public func getTransactionQueue() -> TrackerSdk.TrackerEventQueue?
-  public func getJailbreakDataObtainer() -> TrackerSdk.JailbreakDataObtainer
-  public func getDataStore() -> TrackerSdk.DataStore
-  public func getLocationDataObtainer() -> TrackerSdk.LocationDataObtainer
-  public func getMotionDataObtainer() -> TrackerSdk.MotionDataObtainer
-  public func getContactDataObtainer() -> TrackerSdk.ContactDataObtainer
-  public func setNativeCallback(_ callback: ((_ data: TrackerSdk.NativeTriggerData) -> Swift.Void)?)
-  public func getNativeCallback() -> ((_ data: TrackerSdk.NativeTriggerData) -> Swift.Void)?
-  public func cleanup()
-  @objc deinit
-}
-public class TrackerEventQueue {
-  public init(_ gateway: TrackerSdk.TransactionGateway)
-  public func initialize()
-  public func terminate()
-  @objc deinit
-}
 public struct TrackerConfigResponse : Swift.Decodable {
   public var configs: [TrackerSdk.TrackerConfig]
   public var transactionApiUrl: Swift.String
@@ -415,6 +396,39 @@ public class DeviceDataObtainer {
   public func getThemeMode() -> Swift.String
   public func isCharging() -> Swift.Bool
   public func getChargingType() -> Swift.String
+  public func getSignatureHashSha256() -> Swift.String?
+  public func isScreenSharingActive() -> Swift.Bool
+  @objc deinit
+}
+public class TrackerEventQueue {
+  public init(_ gateway: TrackerSdk.TransactionGateway)
+  public func initialize()
+  public func terminate()
+  @objc deinit
+}
+public class TrackerContext {
+  public static var shared: TrackerSdk.TrackerContext
+  public init()
+  public func initialize(apiKey: Swift.String, serviceUrl: Swift.String, tenant: Swift.String, spkiPins: [Swift.String]? = nil)
+  public func setConfig(_ config: TrackerSdk.TrackerConfigResponse)
+  public func getConfig() -> TrackerSdk.TrackerConfigResponse?
+  public func getApiKey() -> Swift.String
+  public func getServiceUrl() -> Swift.String
+  public func getTenant() -> Swift.String
+  public func getDeviceDataObtainer() -> TrackerSdk.DeviceDataObtainer
+  public func getNetworkDataObtainer() -> TrackerSdk.NetworkDataObtainer
+  public func getNetworkListener() -> TrackerSdk.NetworkObserver
+  public func getTransactionGateway() -> TrackerSdk.TransactionGateway?
+  public func getTransactionQueue() -> TrackerSdk.TrackerEventQueue?
+  public func getPinnedSession() -> Foundation.URLSession?
+  public func getJailbreakDataObtainer() -> TrackerSdk.JailbreakDataObtainer
+  public func getDataStore() -> TrackerSdk.DataStore
+  public func getLocationDataObtainer() -> TrackerSdk.LocationDataObtainer
+  public func getMotionDataObtainer() -> TrackerSdk.MotionDataObtainer
+  public func getContactDataObtainer() -> TrackerSdk.ContactDataObtainer
+  public func setNativeCallback(_ callback: ((_ data: TrackerSdk.NativeTriggerData) -> Swift.Void)?)
+  public func getNativeCallback() -> ((_ data: TrackerSdk.NativeTriggerData) -> Swift.Void)?
+  public func cleanup()
   @objc deinit
 }
 public struct GenericResponse<T> : Swift.Codable where T : Swift.Decodable, T : Swift.Encodable {
@@ -584,6 +598,11 @@ public class AppStateChangeListener : TrackerSdk.EventListener {
   public init(callback: @escaping (_ args: [Swift.String : Any]?) -> Swift.Void)
   public func initialize()
   public func terminate()
+  @objc deinit
+}
+public class TransactionMapper {
+  public init(context: TrackerSdk.TrackerContext, config: TrackerSdk.TrackerConfig)
+  public func execute(_ config: TrackerSdk.TrackerTriggerConfig, _ args: [Swift.String : Any]?) -> TrackerSdk.TrackerEventPayload?
   @objc deinit
 }
 extension TrackerSdk.CallStatusType : Swift.Equatable {}
