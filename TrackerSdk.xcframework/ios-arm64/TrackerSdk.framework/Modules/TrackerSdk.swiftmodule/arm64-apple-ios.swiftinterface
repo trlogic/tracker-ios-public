@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.2 effective-5.10 (swiftlang-6.2.0.19.9 clang-1700.3.19.1)
+// swift-compiler-version: Apple Swift version 6.1.2 effective-5.10 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
 // swift-module-flags: -target arm64-apple-ios12.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name TrackerSdk
-// swift-module-flags-ignorable:  -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2
+// swift-module-flags-ignorable:  -interface-compiler-version 6.1.2
 import CallKit
 import SystemConfiguration.CaptiveNetwork
 import Combine
@@ -28,9 +28,7 @@ import _SwiftConcurrencyShims
 import Darwin.sys.sysctl
 @objc @_inheritsConvenienceInitializers public class LocationDataObtainer : ObjectiveC.NSObject {
   @objc override dynamic public init()
-  #if compiler(>=5.3) && $NonescapableTypes
-  public func getLocation() -> _LocationEssentials.CLLocationCoordinate2D?
-  #endif
+  public func getLocation() -> CoreLocation.CLLocationCoordinate2D?
   @objc deinit
 }
 extension TrackerSdk.LocationDataObtainer : CoreLocation.CLLocationManagerDelegate {
@@ -45,9 +43,7 @@ public enum CallStatusType : Swift.String {
   case CALL
   case REJECT
   case END
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.String)
-  #endif
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
@@ -89,9 +85,7 @@ public struct TrackerVariableConfig : Swift.Decodable {
   public var rawType: Swift.String
   public var properties: TrackerSdk.TrackerProperties
   public var description: Swift.String?
-  #if compiler(>=5.3) && $NonescapableTypes
   public init(name: Swift.String, type: TrackerSdk.TrackerVariableType, properties: TrackerSdk.TrackerProperties, description: Swift.String? = nil)
-  #endif
   public init(from decoder: any Swift.Decoder) throws
 }
 public struct TrackerProperties : Swift.Decodable {
@@ -176,9 +170,7 @@ public enum TrackerVariableType : Swift.String, Swift.Decodable {
   case FRIDA_DETECTED
   case UNKNOWN
   public init(from decoder: any Swift.Decoder) throws
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.String)
-  #endif
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
@@ -189,19 +181,11 @@ public protocol EventListener {
   func terminate()
 }
 @objc @_inheritsConvenienceInitializers public class NetworkDataObtainer : ObjectiveC.NSObject {
-  #if compiler(>=5.3) && $NonescapableTypes
   public func getCarrier() -> Swift.String?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public func getSSID() -> Swift.String?
-  #endif
   public func isVpn() -> Swift.Bool
-  #if compiler(>=5.3) && $NonescapableTypes
   public func getIpAddress() -> Swift.String?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public func getMacAddress() -> Swift.String?
-  #endif
   @objc override dynamic public init()
   @objc deinit
 }
@@ -214,22 +198,14 @@ public class TrackerManager {
   public var isInitialized: Swift.Bool {
     get
   }
-  #if compiler(>=5.3) && $NonescapableTypes
   public func initialize(apiKey: Swift.String, serviceUrl: Swift.String, tenant: Swift.String, spkiPins: [Swift.String]? = nil, onReady: (() -> Swift.Void)?)
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public func initialize(apiKey: Swift.String, serviceUrl: Swift.String, tenant: Swift.String, onReady: (() -> Swift.Void)?)
-  #endif
   public func terminate()
   public func getContext() -> TrackerSdk.TrackerContext
   public func triggerCustomEvent(name: Swift.String, args: [Swift.String : Any])
-  #if compiler(>=5.3) && $NonescapableTypes
   public func triggerCustomEventSync(name: Swift.String, args: [Swift.String : Any], callback: @escaping TrackerSdk.ClientCallback<TrackerSdk.GenericResponse<TrackerSdk.TransactionSubmitResult>>, requestConfig: TrackerSdk.RequestConfig?)
-  #endif
   public func setUserDefinedValues(key: Swift.String, value: Any)
-  #if compiler(>=5.3) && $NonescapableTypes
   public func getUserDefinedValues() -> [Swift.String : Any]?
-  #endif
   public func setNativeTriggerCallback(_ callback: @escaping (_ data: TrackerSdk.NativeTriggerData) -> Swift.Void)
   public func removeNativeTriggerCallback()
   public func debugTrigger(_ type: TrackerSdk.TriggerType)
@@ -245,17 +221,13 @@ public struct ContactData : Swift.Decodable {
 public class ScreenShareListener : TrackerSdk.EventListener {
   public static let SHARE_DURATION_ARG_NAME: Swift.String
   public static let SHARE_STATUS_ARG_NAME: Swift.String
-  #if compiler(>=5.3) && $NonescapableTypes
   public init(type: TrackerSdk.TriggerType, callback: @escaping (_ args: [Swift.String : Any]?) -> Swift.Void)
-  #endif
   public func initialize()
   public func terminate()
   @objc deinit
 }
 public class ApplicationOpenListener : TrackerSdk.EventListener {
-  #if compiler(>=5.3) && $NonescapableTypes
   public init(type: TrackerSdk.TriggerType, callback: @escaping (_ args: [Swift.String : Any]?) -> Swift.Void)
-  #endif
   public func initialize()
   public func terminate()
   @objc deinit
@@ -289,26 +261,20 @@ public enum TriggerType : Swift.String, Swift.Decodable {
   case DEBUGGER_DETACHED
   case SIM_CARD_CHANGE
   case TAMPER_DETECTED
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.String)
-  #endif
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
   }
 }
 public class NetworkChangeListener : TrackerSdk.EventListener {
-  #if compiler(>=5.3) && $NonescapableTypes
   public init(type: TrackerSdk.TriggerType, callback: @escaping (_ args: [Swift.String : Any]?) -> Swift.Void)
-  #endif
   public func initialize()
   public func terminate()
   @objc deinit
 }
 public class CallListener : TrackerSdk.EventListener {
-  #if compiler(>=5.3) && $NonescapableTypes
   public init(type: TrackerSdk.TriggerType, callback: @escaping (_ args: [Swift.String : Any]?) -> Swift.Void)
-  #endif
   public func initialize()
   public func terminate()
   @objc deinit
@@ -370,15 +336,9 @@ public class Reachability {
   public var connection: TrackerSdk.Reachability.Connection {
     get
   }
-  #if compiler(>=5.3) && $NonescapableTypes
   required public init(reachabilityRef: SystemConfiguration.SCNetworkReachability, queueQoS: Dispatch.DispatchQoS = .default, targetQueue: Dispatch.DispatchQueue? = nil, notificationQueue: Dispatch.DispatchQueue? = .main)
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   convenience public init(hostname: Swift.String, queueQoS: Dispatch.DispatchQoS = .default, targetQueue: Dispatch.DispatchQueue? = nil, notificationQueue: Dispatch.DispatchQueue? = .main) throws
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   convenience public init(queueQoS: Dispatch.DispatchQoS = .default, targetQueue: Dispatch.DispatchQueue? = nil, notificationQueue: Dispatch.DispatchQueue? = .main) throws
-  #endif
   @objc deinit
 }
 extension TrackerSdk.Reachability {
@@ -407,9 +367,7 @@ public class RequestConfig {
 }
 public struct AnyCodable : Swift.Codable {
   public let value: Any
-  #if compiler(>=5.3) && $NonescapableTypes
   public init<T>(_ value: T?)
-  #endif
   public init(from decoder: any Swift.Decoder) throws
   public func encode(to encoder: any Swift.Encoder) throws
 }
@@ -422,9 +380,7 @@ public class NetworkObserver {
   public static let networkChangedNotification: Foundation.Notification.Name
   public init(notificationCenter: Foundation.NotificationCenter = .default)
   public func isReachable() -> Swift.Bool
-  #if compiler(>=5.3) && $NonescapableTypes
   public func getConnectionType() -> Swift.String?
-  #endif
   public func terminate()
   @objc deinit
 }
@@ -438,14 +394,10 @@ public class DeviceDataObtainer {
   public init()
   public func getDeviceModel() -> Swift.String
   public func getSystemVersion() -> Swift.String
-  #if compiler(>=5.3) && $NonescapableTypes
   public func getOriontation() -> Swift.String?
-  #endif
   public func getBatteryLevel() -> Swift.Float
   public func isSimulator() -> Swift.Bool
-  #if compiler(>=5.3) && $NonescapableTypes
   public func getArch() -> Swift.String?
-  #endif
   public func getMemory() -> Swift.Double
   public func getBrightness() -> Swift.Float
   public func getResolutionWidth() -> Swift.Double
@@ -454,43 +406,25 @@ public class DeviceDataObtainer {
   public func isIpad() -> Swift.Bool
   public func getInstalledFonts() -> [Swift.String]
   public func getLanguage() -> Swift.String
-  #if compiler(>=5.3) && $NonescapableTypes
   public func getRegion() -> Swift.String?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public func getCountryCode() -> Swift.String?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public func getTimeZone() -> Swift.String?
-  #endif
   public func getCurrentScreenTime() -> Swift.Double
-  #if compiler(>=5.3) && $NonescapableTypes
   public func getDeviceId() -> Swift.String?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public func getAndroidEquivalentId() -> Swift.String?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public func getCdid() -> Swift.String?
-  #endif
   public func getNodeName() -> Swift.String
   public func getOsVersionDetail() -> Swift.String
-  #if compiler(>=5.3) && $NonescapableTypes
   public func getPhoneRadioVersion() -> Swift.String?
-  #endif
   public func getPhoneHost() -> Swift.String
   public func hasX86Support() -> Swift.Bool
-  #if compiler(>=5.3) && $NonescapableTypes
   public func getEmulatorFamily() -> Swift.String?
-  #endif
   public func getScreenShareStatus() -> Swift.String
   public func isInCall() -> Swift.Bool
   public func getThemeMode() -> Swift.String
   public func isCharging() -> Swift.Bool
   public func getChargingType() -> Swift.String
-  #if compiler(>=5.3) && $NonescapableTypes
   public func getSignatureHashSha256() -> Swift.String?
-  #endif
   public func isScreenSharingActive() -> Swift.Bool
   @objc deinit
 }
@@ -522,9 +456,7 @@ public enum TransactionResolution : Swift.String, Swift.Codable {
   case APPROVED
   case ESCALATED
   case DECLINED
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.String)
-  #endif
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
@@ -555,9 +487,7 @@ public enum ComponentType : Swift.String, Swift.Codable {
   case RULE
   case STORE
   case PREDICTION
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.String)
-  #endif
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
@@ -597,58 +527,38 @@ public class JailbreakDataObtainer : TrackerSdk.Check_Method_Of_JailBreak {
 public class ScreenRecordListener : TrackerSdk.EventListener {
   public static let IS_RECORDED_ARG_NAME: Swift.String
   public static let RECORD_DURATION_ARG_NAME: Swift.String
-  #if compiler(>=5.3) && $NonescapableTypes
   public init(type: TrackerSdk.TriggerType, callback: @escaping (_ args: [Swift.String : Any]?) -> Swift.Void)
-  #endif
   public func initialize()
   public func terminate()
   @objc deinit
 }
 public class TransactionGateway {
-  #if compiler(>=5.3) && $NonescapableTypes
   public init(trackerContext: TrackerSdk.TrackerContext, urlSession: Foundation.URLSession? = nil)
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public func send(_ transaction: TrackerSdk.TrackerEventPayload, _ callback: TrackerSdk.ClientCallback<TrackerSdk.GenericResponse<TrackerSdk.TransactionSubmitResult>>?, _ config: TrackerSdk.RequestConfig?)
-  #endif
   @objc deinit
 }
 public class TrackerContext {
   public static var shared: TrackerSdk.TrackerContext
   public init()
-  #if compiler(>=5.3) && $NonescapableTypes
   public func initialize(apiKey: Swift.String, serviceUrl: Swift.String, tenant: Swift.String, spkiPins: [Swift.String]? = nil)
-  #endif
   public func setConfig(_ config: TrackerSdk.TrackerConfigResponse)
-  #if compiler(>=5.3) && $NonescapableTypes
   public func getConfig() -> TrackerSdk.TrackerConfigResponse?
-  #endif
   public func getApiKey() -> Swift.String
   public func getServiceUrl() -> Swift.String
   public func getTenant() -> Swift.String
   public func getDeviceDataObtainer() -> TrackerSdk.DeviceDataObtainer
   public func getNetworkDataObtainer() -> TrackerSdk.NetworkDataObtainer
   public func getNetworkListener() -> TrackerSdk.NetworkObserver
-  #if compiler(>=5.3) && $NonescapableTypes
   public func getTransactionGateway() -> TrackerSdk.TransactionGateway?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public func getTransactionQueue() -> TrackerSdk.TrackerEventQueue?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public func getPinnedSession() -> Foundation.URLSession?
-  #endif
   public func getJailbreakDataObtainer() -> TrackerSdk.JailbreakDataObtainer
   public func getDataStore() -> TrackerSdk.DataStore
   public func getLocationDataObtainer() -> TrackerSdk.LocationDataObtainer
   public func getMotionDataObtainer() -> TrackerSdk.MotionDataObtainer
   public func getContactDataObtainer() -> TrackerSdk.ContactDataObtainer
-  #if compiler(>=5.3) && $NonescapableTypes
   public func setNativeCallback(_ callback: ((_ data: TrackerSdk.NativeTriggerData) -> Swift.Void)?)
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public func getNativeCallback() -> ((_ data: TrackerSdk.NativeTriggerData) -> Swift.Void)?
-  #endif
   public func cleanup()
   @objc deinit
 }
@@ -659,9 +569,7 @@ public class TrackerEventQueue {
   @objc deinit
 }
 public class ThemeChangeListener : TrackerSdk.EventListener {
-  #if compiler(>=5.3) && $NonescapableTypes
   public init(callback: @escaping (_ args: [Swift.String : Any]?) -> Swift.Void)
-  #endif
   public func initialize()
   public func terminate()
   @objc deinit
@@ -674,9 +582,7 @@ public enum TiltStatus : Swift.String {
   case VERTICAL
   case HORIZONTAL
   case UNKNOWN
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.String)
-  #endif
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
@@ -690,24 +596,16 @@ public enum TiltStatus : Swift.String {
   public func getTiltStatus() -> TrackerSdk.TiltStatus
   public func getAppState() -> Swift.String
   public func setAppState(_ appState: Swift.String)
-  #if compiler(>=5.3) && $NonescapableTypes
   public func getGyro() -> CoreMotion.CMGyroData?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public func setGyro(_ gyro: CoreMotion.CMGyroData?)
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public func getAcceleration() -> CoreMotion.CMAcceleration?
-  #endif
   public func setAcceleration(_ acceleration: CoreMotion.CMAcceleration)
   public func getUserDefinedValues() -> [Swift.String : Any]
   public func setUserDefinedValues(key: Swift.String, value: Any)
   @objc deinit
 }
 public class ChargingStateChangeListener : TrackerSdk.EventListener {
-  #if compiler(>=5.3) && $NonescapableTypes
   public init(callback: @escaping (_ args: [Swift.String : Any]?) -> Swift.Void)
-  #endif
   public func initialize()
   public func terminate()
   @objc deinit
@@ -718,29 +616,21 @@ public class TriggerListener : TrackerSdk.EventListener {
   public init(context: TrackerSdk.TrackerContext)
   public func initialize()
   public func afterInitialize()
-  #if compiler(>=5.3) && $NonescapableTypes
   public func trigger(_ type: TrackerSdk.TriggerType, _ args: [Swift.String : Any]?)
-  #endif
   public func triggerCustom(name: Swift.String, args: [Swift.String : Any])
-  #if compiler(>=5.3) && $NonescapableTypes
   public func triggerCustomSync(name: Swift.String, args: [Swift.String : Any], callback: @escaping TrackerSdk.ClientCallback<TrackerSdk.GenericResponse<TrackerSdk.TransactionSubmitResult>>, config: TrackerSdk.RequestConfig?)
-  #endif
   public func terminate()
   @objc deinit
 }
 public class AppStateChangeListener : TrackerSdk.EventListener {
-  #if compiler(>=5.3) && $NonescapableTypes
   public init(callback: @escaping (_ args: [Swift.String : Any]?) -> Swift.Void)
-  #endif
   public func initialize()
   public func terminate()
   @objc deinit
 }
 public class TransactionMapper {
   public init(context: TrackerSdk.TrackerContext, config: TrackerSdk.TrackerConfig)
-  #if compiler(>=5.3) && $NonescapableTypes
   public func execute(_ config: TrackerSdk.TrackerTriggerConfig, _ args: [Swift.String : Any]?) -> TrackerSdk.TrackerEventPayload?
-  #endif
   @objc deinit
 }
 extension TrackerSdk.CallStatusType : Swift.Equatable {}
