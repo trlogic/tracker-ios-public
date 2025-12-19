@@ -1,0 +1,844 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.2.3 effective-5.10 (swiftlang-6.2.3.3.21 clang-1700.6.3.2)
+// swift-module-flags: -target x86_64-apple-ios12-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-upcoming-feature DisableOutwardActorInference -enable-upcoming-feature InferSendableFromCaptures -enable-upcoming-feature GlobalActorIsolatedTypesUsability -enable-upcoming-feature MemberImportVisibility -enable-upcoming-feature InferIsolatedConformances -enable-upcoming-feature NonisolatedNonsendingByDefault -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name Tracker
+// swift-module-flags-ignorable:  -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.3
+import AVFoundation
+import CallKit
+import SystemConfiguration.CaptiveNetwork
+import CommonCrypto
+import Compression
+import Contacts
+import CoreLocation
+import CoreMotion
+import CoreTelephony
+import Darwin
+import Foundation
+import Network
+import ReplayKit
+import Swift
+import SystemConfiguration
+import UIKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+import os.log
+import os
+public protocol NativeEventListener : AnyObject {
+  func onNativeEvent(_ eventData: Tracker.NativeEventData)
+}
+@_hasMissingDesignatedInitializers public class TrackerSDK {
+  public static let shared: Tracker.TrackerSDK
+  public func initialize(with configuration: Tracker.TrackerConfiguration, completion: @escaping Tracker.InitializationCallback)
+  public func isSDKInitialized() -> Swift.Bool
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func getTrackerConfig() -> Tracker.TrackerConfig?
+  #endif
+  public func getCollectedVariables() -> [Tracker.TrackerVariableType : Any]
+  public func triggerCustomEvent(name: Swift.String, args: [Swift.String : Any] = [:])
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func triggerCustomEvent(name: Swift.String, args: [Swift.String : Any] = [:], completion: @escaping (Swift.Result<Tracker.EventResult, any Swift.Error>) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func setUserDefinedValue(key: Swift.String, value: Any?)
+  #endif
+  public func getUserDefinedValues() -> [Swift.String : Any]
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func setNativeEventListener(_ listener: (any Tracker.NativeEventListener)?)
+  #endif
+  public func terminate()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers public class DeviceCollector : Tracker.BaseDataCollector {
+  override public func collect() -> [Tracker.TrackerVariableType : Any]
+  public static func isSimulator() -> Swift.Bool
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func getBatteryLevel() -> Swift.Double?
+  #endif
+  public func getModel() -> Swift.String
+  public func getRamSize() -> Swift.Double
+  public func getScreenWidth() -> Swift.Double
+  public func getScreenHeight() -> Swift.Double
+  public func getOrientation() -> Swift.String
+  public func getLanguage() -> Swift.String
+  public func getRegion() -> Swift.String
+  public func getTimeZone() -> Swift.String
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func getCountry() -> Swift.String?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func getAndroidId() -> Swift.String?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func getCdid() -> Swift.String?
+  #endif
+  public func getNodeName() -> Swift.String
+  public func getOsVersion() -> Swift.String
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func getPhoneRadioVersion() -> Swift.String?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func getPhoneHost() -> Swift.String?
+  #endif
+  public func hasX86Support() -> Swift.Bool
+  public func getArchitecture() -> Swift.String
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func getBrightness() -> Swift.Double?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func getUniqueDeviceId() -> Swift.String?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func getSimSerialHash() -> Swift.String?
+  #endif
+  public func getPlatform() -> Swift.String
+  public func isPhone() -> Swift.Bool
+  public func isTablet() -> Swift.Bool
+  public func isCharging() -> Swift.Bool
+  public func isInVoipCall() -> Swift.Bool
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func getChargingType() -> Swift.String?
+  #endif
+  public func getThemeMode() -> Swift.String
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func getElapsedTime() -> Swift.String?
+  #endif
+  public func getTimestamp() -> Swift.String
+  override public init(payload: Tracker.DataPayload)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers public class InventoryCollector : Tracker.CachedDataCollector {
+  override public func collect() -> [Tracker.TrackerVariableType : Any]
+  public func refresh()
+  public func getContactList() throws -> [Tracker.ContactData]
+  override public init(payload: Tracker.DataPayload)
+  @objc deinit
+}
+public struct ContactData : Swift.Codable {
+  public let fullName: Swift.String
+  public let phoneNumbers: [Swift.String]
+  public init(fullName: Swift.String, phoneNumbers: [Swift.String])
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+@_inheritsConvenienceInitializers public class LocationCollector : Tracker.BaseDataCollector {
+  override public func collect() -> [Tracker.TrackerVariableType : Any]
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func getLastKnownLocation() -> _LocationEssentials.CLLocation?
+  #endif
+  override public init(payload: Tracker.DataPayload)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers public class NetworkCollector : Tracker.CachedDataCollector {
+  override public func collect() -> [Tracker.TrackerVariableType : Any]
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func getIpAddress() throws -> Swift.String?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func getMacAddress() throws -> Swift.String?
+  #endif
+  override public init(payload: Tracker.DataPayload)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers public class ScreenActivityCollector : Tracker.BaseDataCollector {
+  override public init(payload: Tracker.DataPayload)
+  override public func collect() -> [Tracker.TrackerVariableType : Any]
+  @objc deinit
+}
+@_inheritsConvenienceInitializers public class SecurityCollector : Tracker.BaseDataCollector {
+  override public func collect() -> [Tracker.TrackerVariableType : Any]
+  public func isDeviceJailbroken() -> Swift.Bool
+  public func isDebuggerAttached() -> Swift.Bool
+  public func isRemoteControlDetected() -> Swift.Bool
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func getEmulatorFamily() -> Swift.String?
+  #endif
+  public func isFridaDetected() -> Swift.Bool
+  public func isRuntimeTampered() -> Swift.Bool
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func getAppSignatureHash() -> Swift.String?
+  #endif
+  override public init(payload: Tracker.DataPayload)
+  @objc deinit
+}
+open class BaseDataCollector : Tracker.DataCollector {
+  public init(payload: Tracker.DataPayload)
+  open func collect() -> [Tracker.TrackerVariableType : Any]
+  public static func isVariableMapped(config: Tracker.TrackerConfig, type: Tracker.TrackerVariableType) -> Swift.Bool
+  #if compiler(>=5.3) && $NonescapableTypes
+  public static func mapVariablesToBackend(config: Tracker.TrackerConfig.Config, data: [Tracker.TrackerVariableType : Any], eventType: Tracker.TrackerEventType?) -> [Swift.String : Any]
+  #endif
+  @objc deinit
+}
+@_inheritsConvenienceInitializers open class CachedDataCollector : Tracker.BaseDataCollector {
+  override public init(payload: Tracker.DataPayload)
+  @objc deinit
+}
+public protocol DataCollector {
+  func collect() -> [Tracker.TrackerVariableType : Any]
+}
+public protocol EventCallback {
+  func onComplete(_ result: Tracker.EventResult)
+  func onError(_ error: any Swift.Error)
+}
+public class ClosureEventCallback : Tracker.EventCallback {
+  public init(completion: @escaping (Tracker.EventResult) -> Swift.Void, error: @escaping (any Swift.Error) -> Swift.Void)
+  public func onComplete(_ result: Tracker.EventResult)
+  public func onError(_ error: any Swift.Error)
+  @objc deinit
+}
+public protocol EventServicing {
+  func start()
+  func stop()
+}
+public protocol EventCoordinating {
+  func start()
+  func stop()
+  func triggerCustomEvent(eventName: Swift.String, arguments: [Swift.String : Any])
+  func triggerNativeEvent(_ eventType: Tracker.TrackerEventType)
+  #if compiler(>=5.3) && $NonescapableTypes
+  func setNativeEventListener(_ listener: (any Tracker.NativeEventListener)?)
+  #endif
+}
+public protocol PeriodicScheduling {
+  func start()
+  func shutdown()
+}
+extension Tracker.EventService : Tracker.EventServicing {
+}
+extension Tracker.EventCoordinator : Tracker.EventCoordinating {
+}
+extension Tracker.PeriodicDataScheduler : Tracker.PeriodicScheduling {
+}
+public protocol EventStorage {
+  func saveEvent(_ event: Tracker.Event)
+  func getPendingEvents() -> [Tracker.Event]
+  func removeEvent(_ eventKey: Swift.String)
+  func clearAll()
+  func getEventCount() -> Swift.Int
+}
+public typealias InitializationCallback = (Swift.Bool, Swift.String) -> Swift.Void
+public protocol NetworkService {
+  #if compiler(>=5.3) && $NonescapableTypes
+  func fetchConfiguration(completion: @escaping (Swift.Result<Swift.String, any Swift.Error>) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  func sendEvent(_ event: Tracker.Event, completion: @escaping (Swift.Result<Tracker.EventResult, any Swift.Error>) -> Swift.Void)
+  #endif
+  func isNetworkAvailable() -> Swift.Bool
+  func shutdown()
+}
+public class EventCoordinator {
+  public init(eventService: Tracker.EventService, collectors: [any Tracker.DataCollector], payload: Tracker.DataPayload)
+  public func start()
+  public func stop()
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func setNativeEventListener(_ listener: (any Tracker.NativeEventListener)?)
+  #endif
+  public func triggerNativeEvent(_ eventType: Tracker.TrackerEventType)
+  public func triggerCustomEvent(eventName: Swift.String, arguments: [Swift.String : Any])
+  @objc deinit
+}
+public class TrackerEngine {
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(configuration: Tracker.TrackerConfiguration, eventService: any Tracker.EventServicing, eventCoordinator: any Tracker.EventCoordinating, periodicDataScheduler: any Tracker.PeriodicScheduling, dataPayload: Tracker.DataPayload, networkService: (any Tracker.NetworkService)? = nil)
+  #endif
+  public func initialize(completion: @escaping Tracker.InitializationCallback)
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func getConfig() -> Tracker.TrackerConfig?
+  #endif
+  public func triggerCustomEvent(eventName: Swift.String, arguments: [Swift.String : Any])
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func triggerCustomEventSync(eventName: Swift.String, arguments: [Swift.String : Any], completion: @escaping (Swift.Result<Tracker.EventResult, any Swift.Error>) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func setUserDefinedValue(key: Swift.String, value: Any?)
+  #endif
+  public func getUserDefinedValues() -> [Swift.String : Any]
+  public func terminate()
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func setNativeEventListener(_ listener: (any Tracker.NativeEventListener)?)
+  #endif
+  @objc deinit
+}
+public enum AppState : Swift.String, Swift.Codable {
+  case active
+  case inactive
+  case background
+  case foreground
+  case terminated
+  public var value: Swift.String {
+    get
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.String)
+  #endif
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public class CallState {
+  public init(isIncoming: Swift.Bool, phoneNumber: Swift.String, isContact: Swift.Bool)
+  public func end()
+  public func getDuration() -> Swift.Int64
+  public func isIncoming() -> Swift.Bool
+  public func getPhoneNumber() -> Swift.String
+  public func isContact() -> Swift.Bool
+  public func getStartTime() -> Swift.Int64
+  public func isActive() -> Swift.Bool
+  @objc deinit
+}
+public struct Event : Swift.Codable {
+  public let name: Swift.String
+  public let key: Swift.String
+  public let variables: [Swift.String : Tracker.AnyCodable]
+  public func getName() -> Swift.String
+  public func getKey() -> Swift.String
+  public func getVariables() -> [Swift.String : Any]
+  public class Builder {
+    public init(_ name: Swift.String)
+    @discardableResult
+    public func setKey(_ key: Swift.String) -> Tracker.Event.Builder
+    #if compiler(>=5.3) && $NonescapableTypes
+    @discardableResult
+    public func addVariable(_ key: Swift.String, _ value: Any?) -> Tracker.Event.Builder
+    #endif
+    @discardableResult
+    public func addAllVariables(_ variables: [Swift.String : Any]) -> Tracker.Event.Builder
+    public func build() -> Tracker.Event
+    @objc deinit
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct AnyCodable : Swift.Codable {
+  public let value: Any
+  public init(_ value: Any)
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+public struct EventResult {
+  public let success: Swift.Bool
+  public let transactionId: Swift.String?
+  public let message: Swift.String?
+  public let error: (any Swift.Error)?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(success: Swift.Bool, transactionId: Swift.String? = nil, message: Swift.String? = nil, error: (any Swift.Error)? = nil)
+  #endif
+}
+public struct TransactionSubmitResult : Swift.Codable {
+  public let id: Swift.String
+  public let status: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct GenericResponse<T> : Swift.Codable where T : Swift.Decodable, T : Swift.Encodable {
+  public let data: T
+  public let success: Swift.Bool
+  public let message: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct NativeEventData {
+  public let type: Tracker.TrackerEventType
+  public let args: [Swift.String : Any]
+  public let timestamp: Foundation.Date
+  public init(type: Tracker.TrackerEventType, args: [Swift.String : Any], timestamp: Foundation.Date = Date())
+  public func getType() -> Tracker.TrackerEventType
+  public func getArgs() -> [Swift.String : Any]
+}
+public class ScreenState {
+  public init(type: Swift.String)
+  public func stop()
+  public func getDuration() -> Swift.Int64
+  public func getStartTime() -> Swift.Int64
+  public func isActive() -> Swift.Bool
+  @objc deinit
+}
+public struct TrackerConfig : Swift.Codable {
+  public struct Config : Swift.Codable {
+    public init(name: Swift.String, event: Tracker.TrackerConfig.EventConfig, platform: Swift.String, triggers: [Tracker.TrackerConfig.TriggerConfig], variables: [Tracker.TrackerConfig.VariableConfig])
+    public init(from decoder: any Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+  }
+  public struct EventConfig : Swift.Codable {
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
+  }
+  public struct TriggerConfig : Swift.Codable {
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
+  }
+  public struct VariableConfig : Swift.Codable {
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func getApiUrl() -> Swift.String?
+  #endif
+  public func getConfigs() -> [Tracker.TrackerConfig.Config]
+  public func hasTriggers(_ types: [Tracker.TrackerEventType]) -> Swift.Bool
+  public func hasVariable(_ types: [Tracker.TrackerVariableType]) -> Swift.Bool
+  public func hasVariable(_ type: Tracker.TrackerVariableType) -> Swift.Bool
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func mappedFieldName(for type: Tracker.TrackerVariableType) -> Swift.String?
+  #endif
+  public func isVariableMapped(_ type: Tracker.TrackerVariableType) -> Swift.Bool
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct TrackerConfiguration {
+  public let tenant: Swift.String
+  public let apiUrl: Swift.String
+  public let apiKey: Swift.String
+  public let spkiPins: [Swift.String]?
+  public let timeout: Foundation.TimeInterval
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(tenant: Swift.String, apiUrl: Swift.String, apiKey: Swift.String, spkiPins: [Swift.String]? = nil, timeout: Foundation.TimeInterval = 30.0)
+  #endif
+}
+public enum TrackerEventType : Swift.String, Swift.Codable {
+  case APPLICATION_OPEN
+  case APP_STATE_CHANGE
+  case NETWORK_CHANGE
+  case CHARGING_STATE_CHANGE
+  case THEME_CHANGE
+  case PHONE_CALL_START
+  case PHONE_CALL_END
+  case PHONE_CALL_RING
+  case PHONE_CALL_REJECT
+  case PHONE_CALL_APPROVE
+  case VOIP_CALL_START
+  case VOIP_CALL_END
+  case SCREEN_RECORD_START
+  case SCREEN_RECORD_END
+  case SCREEN_SHARE_START
+  case SCREEN_SHARE_END
+  case SIM_CARD_CHANGE
+  case DEBUGGER_ATTACHED
+  case DEBUGGER_DETACHED
+  case TAMPER_DETECTED
+  case CUSTOM
+  public init(from decoder: any Swift.Decoder) throws
+  public var value: Swift.String {
+    get
+  }
+  public static func fromString(_ value: Swift.String) -> Tracker.TrackerEventType
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.String)
+  #endif
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum TrackerVariableType : Swift.String, Swift.Codable, Swift.CaseIterable {
+  case APP_STATE
+  case ARCH
+  case BATTERY_LEVEL
+  case BRIGHTNESS
+  case CDID
+  case COUNTRY
+  case DEVICE_MODEL
+  case ELAPSED_TIME
+  case EVENT_NAME
+  case HAS_X86_ABI
+  case IS_CHARGING
+  case IS_DEBUGGER_ATTACHED
+  case IS_PHONE
+  case IS_ROOTED
+  case IS_SIMULATOR
+  case IS_TABLET
+  case LANGUAGE
+  case NODE_NAME
+  case OS_VERSION
+  case PHONE_HOST
+  case PHONE_RADIO_VERSION
+  case PLATFORM
+  case RAM_SIZE
+  case REGION
+  case RESOLUTION_HEIGHT
+  case RESOLUTION_WIDTH
+  case SDK_VERSION
+  case THEME_MODE
+  case TIME_ZONE
+  case TIMESTAMP
+  case UNIQUE_DEVICE_ID
+  case ANDROID_ID
+  case CARRIER
+  case IP_ADDRESS
+  case IS_VPN
+  case MAC_ADDRESS
+  case NETWORK_TYPE
+  case REACHABLE
+  case WIFI_SSID
+  case CALL_DURATION
+  case CALL_IS_INCOMING
+  case CALL_NUMBER
+  case IS_CONTACT
+  case IS_IN_CALL
+  case IS_IN_VOIP_CALL
+  case SIM_SERIAL_HASH
+  case APP_SIGNATURE_HASH
+  case CHARGING_TYPE
+  case CUSTOM_TRIGGER_ARGS
+  case SCREEN_RECORD_DURATION
+  case SCREEN_RECORD_STATUS
+  case SCREEN_SHARE_DURATION
+  case SCREEN_SHARE_STATUS
+  case GYRO_X
+  case GYRO_Y
+  case GYRO_Z
+  case LAST_KNOWN_LAT
+  case LAST_KNOWN_LON
+  case ORIENTATION
+  case TILT_STATUS
+  case ADB_ENABLED
+  case EMULATOR_FAMILY
+  case FRIDA_DETECTED
+  case REMOTE_CONTROL_ACTIVE
+  case REMOTE_SESSION_STATUS
+  case RUNTIME_TAMPERED
+  case SELINUX_STATUS
+  case STAGEFRIGHT_VULNERABLE
+  case APP_LIST
+  case CONTACT_LIST
+  public init(from decoder: any Swift.Decoder) throws
+  public var value: Swift.String {
+    get
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.String)
+  #endif
+  public typealias AllCases = [Tracker.TrackerVariableType]
+  public typealias RawValue = Swift.String
+  nonisolated public static var allCases: [Tracker.TrackerVariableType] {
+    get
+  }
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum VariableCollectionMetadata {
+  case REAL_TIME
+  case FAST
+  case MODERATE
+  case SLOW
+  case HEAVY
+  case STATIC
+  public var cacheDurationMs: Swift.Int64 {
+    get
+  }
+  public var collectionIntervalMs: Swift.Int64 {
+    get
+  }
+  public static func getStrategy(for type: Tracker.TrackerVariableType) -> Tracker.VariableCollectionMetadata
+  public var shouldCollectPeriodically: Swift.Bool {
+    get
+  }
+  public var shouldCache: Swift.Bool {
+    get
+  }
+  public static func == (a: Tracker.VariableCollectionMetadata, b: Tracker.VariableCollectionMetadata) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public class PeriodicDataScheduler {
+  public init(inventoryCollector: Tracker.InventoryCollector)
+  public func start()
+  public func stop()
+  public func shutdown()
+  public func isSchedulerRunning() -> Swift.Bool
+  public func triggerImmediateCollection()
+  public func restart()
+  @objc deinit
+}
+public class DataPayload {
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var trackerConfig: Tracker.TrackerConfig? {
+    get
+    set
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var startTime: Swift.Int64? {
+    get
+    set
+  }
+  #endif
+  public init()
+  public func setTrackerConfig(_ config: Tracker.TrackerConfig)
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func getTrackerConfig() -> Tracker.TrackerConfig?
+  #endif
+  public func setStartTime(_ time: Swift.Int64)
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func getStartTime() -> Swift.Int64?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func setScreenRecordStartTime(_ time: Swift.Int64?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func getScreenRecordStartTime() -> Swift.Int64?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func setScreenShareStartTime(_ time: Swift.Int64?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func getScreenShareStartTime() -> Swift.Int64?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func setVariable(_ type: Tracker.TrackerVariableType, _ value: Any?)
+  #endif
+  public func getVariables() -> [Tracker.TrackerVariableType : Any]
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func getVariable(_ type: Tracker.TrackerVariableType) -> Any?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func setUserDefinedValue(_ key: Swift.String, _ value: Any?)
+  #endif
+  public func getUserDefinedValues() -> [Swift.String : Any]
+  public func clearVariables()
+  public func clearUserDefinedValues()
+  @objc deinit
+}
+public class TrackerComponent {
+  public init(configuration: Tracker.TrackerConfiguration)
+  public func getTrackerEngine() -> Tracker.TrackerEngine
+  public func getEventCoordinator() -> Tracker.EventCoordinator
+  public func getDataPayload() -> Tracker.DataPayload
+  @objc deinit
+}
+public class TrackerModule {
+  public init(configuration: Tracker.TrackerConfiguration)
+  public func provideConfiguration() -> Tracker.TrackerConfiguration
+  public func provideEventStorage() -> any Tracker.EventStorage
+  public func provideNetworkService() -> any Tracker.NetworkService
+  public func provideDeviceCollector() -> Tracker.DeviceCollector
+  public func provideNetworkCollector() -> Tracker.NetworkCollector
+  public func provideSecurityCollector() -> Tracker.SecurityCollector
+  public func provideLocationCollector() -> Tracker.LocationCollector
+  public func provideInventoryCollector() -> Tracker.InventoryCollector
+  public func provideScreenActivityCollector() -> Tracker.ScreenActivityCollector
+  public func provideCollectors() -> [any Tracker.DataCollector]
+  public func provideDataPayload() -> Tracker.DataPayload
+  public func providePeriodicDataScheduler() -> Tracker.PeriodicDataScheduler
+  public func provideStorageService() -> Tracker.StorageService
+  @objc deinit
+}
+public class AppStateListener : Tracker.EventListener {
+  public init(payload: Tracker.DataPayload, eventTrigger: @escaping Tracker.NativeEventTrigger)
+  public func getTypes() -> [Tracker.TrackerEventType]
+  public func getVariableTypes() -> [Tracker.TrackerVariableType]
+  public func start()
+  public func stop()
+  @objc deinit
+}
+@objc public class CallListener : ObjectiveC.NSObject, Tracker.EventListener {
+  public init(payload: Tracker.DataPayload, eventTrigger: @escaping Tracker.NativeEventTrigger)
+  public func getTypes() -> [Tracker.TrackerEventType]
+  public func getVariableTypes() -> [Tracker.TrackerVariableType]
+  public func start()
+  public func stop()
+  @objc public func callObserver(_: CallKit.CXCallObserver, callChanged call: CallKit.CXCall)
+  @objc deinit
+}
+extension Tracker.CallListener : CallKit.CXCallObserverDelegate {
+}
+public class ChargingListener : Tracker.EventListener {
+  public init(payload: Tracker.DataPayload, eventTrigger: @escaping Tracker.NativeEventTrigger)
+  public func getTypes() -> [Tracker.TrackerEventType]
+  public func getVariableTypes() -> [Tracker.TrackerVariableType]
+  public func start()
+  public func stop()
+  @objc deinit
+}
+public class DebuggerListener : Tracker.EventListener {
+  public init(payload: Tracker.DataPayload, eventTrigger: @escaping Tracker.NativeEventTrigger)
+  public func getTypes() -> [Tracker.TrackerEventType]
+  public func getVariableTypes() -> [Tracker.TrackerVariableType]
+  public func start()
+  public func stop()
+  public func isDebuggerAttached() -> Swift.Bool
+  @objc deinit
+}
+public protocol EventListener : AnyObject {
+  func getTypes() -> [Tracker.TrackerEventType]
+  func getVariableTypes() -> [Tracker.TrackerVariableType]
+  func start()
+  func stop()
+}
+extension Tracker.EventListener {
+  public func getVariableTypes() -> [Tracker.TrackerVariableType]
+}
+public typealias NativeEventTrigger = (Tracker.TrackerEventType) -> Swift.Void
+public class NetworkListener : Tracker.EventListener {
+  public init(eventTrigger: @escaping Tracker.NativeEventTrigger)
+  public func getTypes() -> [Tracker.TrackerEventType]
+  public func start()
+  public func stop()
+  @objc deinit
+}
+public class ScreenListener : Tracker.EventListener {
+  public init(eventTrigger: @escaping Tracker.NativeEventTrigger)
+  public func getTypes() -> [Tracker.TrackerEventType]
+  public func start()
+  public func stop()
+  @objc deinit
+}
+public class ScreenRecordListener : Tracker.EventListener {
+  public init(payload: Tracker.DataPayload, eventTrigger: @escaping Tracker.NativeEventTrigger)
+  public func getTypes() -> [Tracker.TrackerEventType]
+  public func getVariableTypes() -> [Tracker.TrackerVariableType]
+  public func start()
+  public func stop()
+  @objc deinit
+}
+public class ScreenShareListener : Tracker.EventListener {
+  public init(payload: Tracker.DataPayload, eventTrigger: @escaping Tracker.NativeEventTrigger)
+  public func getTypes() -> [Tracker.TrackerEventType]
+  public func getVariableTypes() -> [Tracker.TrackerVariableType]
+  public func start()
+  public func stop()
+  @objc deinit
+}
+public class SensorListener : Tracker.EventListener {
+  public init(payload: Tracker.DataPayload)
+  public func getTypes() -> [Tracker.TrackerEventType]
+  public func getVariableTypes() -> [Tracker.TrackerVariableType]
+  public func start()
+  public func stop()
+  @objc deinit
+}
+public class SimChangeListener : Tracker.EventListener {
+  public init(payload: Tracker.DataPayload, eventTrigger: @escaping Tracker.NativeEventTrigger)
+  public func getTypes() -> [Tracker.TrackerEventType]
+  public func getVariableTypes() -> [Tracker.TrackerVariableType]
+  public func start()
+  public func stop()
+  @objc deinit
+}
+public class TamperListener : Tracker.EventListener {
+  public init(payload: Tracker.DataPayload, eventTrigger: @escaping Tracker.NativeEventTrigger)
+  public func getTypes() -> [Tracker.TrackerEventType]
+  public func getVariableTypes() -> [Tracker.TrackerVariableType]
+  public func start()
+  public func stop()
+  public func isTamperDetected() -> Swift.Bool
+  @objc deinit
+}
+public class ThemeChangeListener : Tracker.EventListener {
+  public init(payload: Tracker.DataPayload, eventTrigger: @escaping Tracker.NativeEventTrigger)
+  public func getTypes() -> [Tracker.TrackerEventType]
+  public func getVariableTypes() -> [Tracker.TrackerVariableType]
+  public func start()
+  public func stop()
+  @objc deinit
+}
+public class EventService {
+  public init(eventStorage: any Tracker.EventStorage, networkService: any Tracker.NetworkService)
+  public func start()
+  public func stop()
+  public func enqueueEvent(_ event: Tracker.Event)
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func sendEventSync(_ event: Tracker.Event, completion: @escaping (Swift.Result<Tracker.EventResult, any Swift.Error>) -> Swift.Void)
+  #endif
+  @objc deinit
+}
+public class DefaultNetworkService : Tracker.NetworkService {
+  public init(configuration: Tracker.TrackerConfiguration)
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func fetchConfiguration(completion: @escaping (Swift.Result<Swift.String, any Swift.Error>) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func sendEvent(_ event: Tracker.Event, completion: @escaping (Swift.Result<Tracker.EventResult, any Swift.Error>) -> Swift.Void)
+  #endif
+  public func isNetworkAvailable() -> Swift.Bool
+  public func shutdown()
+  @objc deinit
+}
+@objc public class SSLPinningHelper : ObjectiveC.NSObject, Foundation.URLSessionDelegate {
+  public init(configuration: Tracker.TrackerConfiguration)
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc public func urlSession(_: Foundation.URLSession, didReceive challenge: Foundation.URLAuthenticationChallenge, completionHandler: @escaping (Foundation.URLSession.AuthChallengeDisposition, Foundation.URLCredential?) -> Swift.Void)
+  #endif
+  @objc deinit
+}
+public class StorageService {
+  public init(eventStorage: any Tracker.EventStorage)
+  public func getEventStorage() -> any Tracker.EventStorage
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func setUserDefinedValue(_ key: Swift.String, _ value: Any?)
+  #endif
+  public func getUserDefinedValues() -> [Swift.String : Any]
+  public func clearUserDefinedValues()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class GzipUtil {
+  public static func compress(_ data: Foundation.Data) throws -> Foundation.Data
+  public static func decompress(_ compressedData: Foundation.Data) throws -> Foundation.Data
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class JsonUtil {
+  #if compiler(>=5.3) && $NonescapableTypes
+  public static func toJson(_ object: (some Encodable)?) -> Swift.String?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public static func toJson(_ dictionary: [Swift.String : Any]?) -> Swift.String?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public static func fromJson<T>(_ json: Swift.String?, _ type: T.Type) -> T? where T : Swift.Decodable
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public static func fromJson(_ json: Swift.String?) -> [Swift.String : Any]?
+  #endif
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class Logger {
+  public enum Level : Swift.String {
+    case debug
+    case info
+    case warning
+    case error
+    #if compiler(>=5.3) && $NonescapableTypes
+    public init?(rawValue: Swift.String)
+    #endif
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public static func setEnabled(_ enabled: Swift.Bool)
+  public static func d(_ tag: Swift.String, _ message: Swift.String)
+  public static func i(_ tag: Swift.String, _ message: Swift.String)
+  #if compiler(>=5.3) && $NonescapableTypes
+  public static func w(_ tag: Swift.String, _ message: Swift.String, _ error: (any Swift.Error)? = nil)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public static func e(_ tag: Swift.String, _ message: Swift.String, _ error: (any Swift.Error)? = nil)
+  #endif
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class ThreadUtil {
+  public static func runOnBackground(_ closure: @escaping () -> Swift.Void)
+  public static func runOnMain(_ closure: @escaping () -> Swift.Void)
+  public static func runOnMainDelayed(_ delayMillis: Swift.Int, _ closure: @escaping () -> Swift.Void)
+  public static func isMainThread() -> Swift.Bool
+  @objc deinit
+}
+extension Tracker.AppState : Swift.Equatable {}
+extension Tracker.AppState : Swift.Hashable {}
+extension Tracker.AppState : Swift.RawRepresentable {}
+extension Tracker.TrackerEventType : Swift.Equatable {}
+extension Tracker.TrackerEventType : Swift.Hashable {}
+extension Tracker.TrackerEventType : Swift.RawRepresentable {}
+extension Tracker.TrackerVariableType : Swift.Equatable {}
+extension Tracker.TrackerVariableType : Swift.Hashable {}
+extension Tracker.TrackerVariableType : Swift.RawRepresentable {}
+extension Tracker.VariableCollectionMetadata : Swift.Equatable {}
+extension Tracker.VariableCollectionMetadata : Swift.Hashable {}
+extension Tracker.Logger.Level : Swift.Equatable {}
+extension Tracker.Logger.Level : Swift.Hashable {}
+extension Tracker.Logger.Level : Swift.RawRepresentable {}
