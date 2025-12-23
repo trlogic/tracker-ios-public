@@ -9108,6 +9108,80 @@
           },
           {
             "kind": "Var",
+            "name": "SCREENSHOT_TAKEN",
+            "printedName": "SCREENSHOT_TAKEN",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Tracker.TrackerEventType.Type) -> Tracker.TrackerEventType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TrackerEventType",
+                    "printedName": "Tracker.TrackerEventType",
+                    "usr": "s:7Tracker0A9EventTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "Tracker.TrackerEventType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TrackerEventType",
+                        "printedName": "Tracker.TrackerEventType",
+                        "usr": "s:7Tracker0A9EventTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:7Tracker0A9EventTypeO16SCREENSHOT_TAKENyA2CmF",
+            "mangledName": "$s7Tracker0A9EventTypeO16SCREENSHOT_TAKENyA2CmF",
+            "moduleName": "Tracker"
+          },
+          {
+            "kind": "Var",
+            "name": "OVERLAY_DETECTED",
+            "printedName": "OVERLAY_DETECTED",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Tracker.TrackerEventType.Type) -> Tracker.TrackerEventType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TrackerEventType",
+                    "printedName": "Tracker.TrackerEventType",
+                    "usr": "s:7Tracker0A9EventTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "Tracker.TrackerEventType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TrackerEventType",
+                        "printedName": "Tracker.TrackerEventType",
+                        "usr": "s:7Tracker0A9EventTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:7Tracker0A9EventTypeO16OVERLAY_DETECTEDyA2CmF",
+            "mangledName": "$s7Tracker0A9EventTypeO16OVERLAY_DETECTEDyA2CmF",
+            "moduleName": "Tracker"
+          },
+          {
+            "kind": "Var",
             "name": "CUSTOM",
             "printedName": "CUSTOM",
             "children": [
@@ -10852,6 +10926,806 @@
             "usr": "s:7Tracker0A12VariableTypeO9WIFI_SSIDyA2CmF",
             "mangledName": "$s7Tracker0A12VariableTypeO9WIFI_SSIDyA2CmF",
             "moduleName": "Tracker"
+          },
+          {
+            "kind": "Var",
+            "name": "WIFI_BSSID",
+            "printedName": "WIFI_BSSID",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Tracker.TrackerVariableType.Type) -> Tracker.TrackerVariableType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TrackerVariableType",
+                    "printedName": "Tracker.TrackerVariableType",
+                    "usr": "s:7Tracker0A12VariableTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "Tracker.TrackerVariableType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TrackerVariableType",
+                        "printedName": "Tracker.TrackerVariableType",
+                        "usr": "s:7Tracker0A12VariableTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:7Tracker0A12VariableTypeO10WIFI_BSSIDyA2CmF",
+            "mangledName": "$s7Tracker0A12VariableTypeO10WIFI_BSSIDyA2CmF",
+            "moduleName": "Tracker",
+            "declAttributes": [
+              "RawDocComment"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "WIFI_CHANNEL",
+            "printedName": "WIFI_CHANNEL",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Tracker.TrackerVariableType.Type) -> Tracker.TrackerVariableType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TrackerVariableType",
+                    "printedName": "Tracker.TrackerVariableType",
+                    "usr": "s:7Tracker0A12VariableTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "Tracker.TrackerVariableType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TrackerVariableType",
+                        "printedName": "Tracker.TrackerVariableType",
+                        "usr": "s:7Tracker0A12VariableTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:7Tracker0A12VariableTypeO12WIFI_CHANNELyA2CmF",
+            "mangledName": "$s7Tracker0A12VariableTypeO12WIFI_CHANNELyA2CmF",
+            "moduleName": "Tracker",
+            "declAttributes": [
+              "RawDocComment"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "WIFI_FREQUENCY",
+            "printedName": "WIFI_FREQUENCY",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Tracker.TrackerVariableType.Type) -> Tracker.TrackerVariableType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TrackerVariableType",
+                    "printedName": "Tracker.TrackerVariableType",
+                    "usr": "s:7Tracker0A12VariableTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "Tracker.TrackerVariableType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TrackerVariableType",
+                        "printedName": "Tracker.TrackerVariableType",
+                        "usr": "s:7Tracker0A12VariableTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:7Tracker0A12VariableTypeO14WIFI_FREQUENCYyA2CmF",
+            "mangledName": "$s7Tracker0A12VariableTypeO14WIFI_FREQUENCYyA2CmF",
+            "moduleName": "Tracker",
+            "declAttributes": [
+              "RawDocComment"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "WIFI_SIGNAL_STRENGTH",
+            "printedName": "WIFI_SIGNAL_STRENGTH",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Tracker.TrackerVariableType.Type) -> Tracker.TrackerVariableType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TrackerVariableType",
+                    "printedName": "Tracker.TrackerVariableType",
+                    "usr": "s:7Tracker0A12VariableTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "Tracker.TrackerVariableType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TrackerVariableType",
+                        "printedName": "Tracker.TrackerVariableType",
+                        "usr": "s:7Tracker0A12VariableTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:7Tracker0A12VariableTypeO20WIFI_SIGNAL_STRENGTHyA2CmF",
+            "mangledName": "$s7Tracker0A12VariableTypeO20WIFI_SIGNAL_STRENGTHyA2CmF",
+            "moduleName": "Tracker",
+            "declAttributes": [
+              "RawDocComment"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "CELL_ID",
+            "printedName": "CELL_ID",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Tracker.TrackerVariableType.Type) -> Tracker.TrackerVariableType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TrackerVariableType",
+                    "printedName": "Tracker.TrackerVariableType",
+                    "usr": "s:7Tracker0A12VariableTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "Tracker.TrackerVariableType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TrackerVariableType",
+                        "printedName": "Tracker.TrackerVariableType",
+                        "usr": "s:7Tracker0A12VariableTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:7Tracker0A12VariableTypeO7CELL_IDyA2CmF",
+            "mangledName": "$s7Tracker0A12VariableTypeO7CELL_IDyA2CmF",
+            "moduleName": "Tracker",
+            "declAttributes": [
+              "RawDocComment"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "CELL_LAC",
+            "printedName": "CELL_LAC",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Tracker.TrackerVariableType.Type) -> Tracker.TrackerVariableType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TrackerVariableType",
+                    "printedName": "Tracker.TrackerVariableType",
+                    "usr": "s:7Tracker0A12VariableTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "Tracker.TrackerVariableType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TrackerVariableType",
+                        "printedName": "Tracker.TrackerVariableType",
+                        "usr": "s:7Tracker0A12VariableTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:7Tracker0A12VariableTypeO8CELL_LACyA2CmF",
+            "mangledName": "$s7Tracker0A12VariableTypeO8CELL_LACyA2CmF",
+            "moduleName": "Tracker",
+            "declAttributes": [
+              "RawDocComment"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "CELL_SIGNAL_STRENGTH",
+            "printedName": "CELL_SIGNAL_STRENGTH",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Tracker.TrackerVariableType.Type) -> Tracker.TrackerVariableType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TrackerVariableType",
+                    "printedName": "Tracker.TrackerVariableType",
+                    "usr": "s:7Tracker0A12VariableTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "Tracker.TrackerVariableType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TrackerVariableType",
+                        "printedName": "Tracker.TrackerVariableType",
+                        "usr": "s:7Tracker0A12VariableTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:7Tracker0A12VariableTypeO20CELL_SIGNAL_STRENGTHyA2CmF",
+            "mangledName": "$s7Tracker0A12VariableTypeO20CELL_SIGNAL_STRENGTHyA2CmF",
+            "moduleName": "Tracker",
+            "declAttributes": [
+              "RawDocComment"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "CELL_NETWORK_TYPE",
+            "printedName": "CELL_NETWORK_TYPE",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Tracker.TrackerVariableType.Type) -> Tracker.TrackerVariableType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TrackerVariableType",
+                    "printedName": "Tracker.TrackerVariableType",
+                    "usr": "s:7Tracker0A12VariableTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "Tracker.TrackerVariableType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TrackerVariableType",
+                        "printedName": "Tracker.TrackerVariableType",
+                        "usr": "s:7Tracker0A12VariableTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:7Tracker0A12VariableTypeO17CELL_NETWORK_TYPEyA2CmF",
+            "mangledName": "$s7Tracker0A12VariableTypeO17CELL_NETWORK_TYPEyA2CmF",
+            "moduleName": "Tracker",
+            "declAttributes": [
+              "RawDocComment"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "HAS_ESIM_SUPPORT",
+            "printedName": "HAS_ESIM_SUPPORT",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Tracker.TrackerVariableType.Type) -> Tracker.TrackerVariableType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TrackerVariableType",
+                    "printedName": "Tracker.TrackerVariableType",
+                    "usr": "s:7Tracker0A12VariableTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "Tracker.TrackerVariableType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TrackerVariableType",
+                        "printedName": "Tracker.TrackerVariableType",
+                        "usr": "s:7Tracker0A12VariableTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:7Tracker0A12VariableTypeO16HAS_ESIM_SUPPORTyA2CmF",
+            "mangledName": "$s7Tracker0A12VariableTypeO16HAS_ESIM_SUPPORTyA2CmF",
+            "moduleName": "Tracker",
+            "declAttributes": [
+              "RawDocComment"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "IS_USING_ESIM",
+            "printedName": "IS_USING_ESIM",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Tracker.TrackerVariableType.Type) -> Tracker.TrackerVariableType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TrackerVariableType",
+                    "printedName": "Tracker.TrackerVariableType",
+                    "usr": "s:7Tracker0A12VariableTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "Tracker.TrackerVariableType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TrackerVariableType",
+                        "printedName": "Tracker.TrackerVariableType",
+                        "usr": "s:7Tracker0A12VariableTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:7Tracker0A12VariableTypeO13IS_USING_ESIMyA2CmF",
+            "mangledName": "$s7Tracker0A12VariableTypeO13IS_USING_ESIMyA2CmF",
+            "moduleName": "Tracker",
+            "declAttributes": [
+              "RawDocComment"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "SIM_SLOT_COUNT",
+            "printedName": "SIM_SLOT_COUNT",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Tracker.TrackerVariableType.Type) -> Tracker.TrackerVariableType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TrackerVariableType",
+                    "printedName": "Tracker.TrackerVariableType",
+                    "usr": "s:7Tracker0A12VariableTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "Tracker.TrackerVariableType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TrackerVariableType",
+                        "printedName": "Tracker.TrackerVariableType",
+                        "usr": "s:7Tracker0A12VariableTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:7Tracker0A12VariableTypeO14SIM_SLOT_COUNTyA2CmF",
+            "mangledName": "$s7Tracker0A12VariableTypeO14SIM_SLOT_COUNTyA2CmF",
+            "moduleName": "Tracker",
+            "declAttributes": [
+              "RawDocComment"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "ACTIVE_SUBSCRIPTION_COUNT",
+            "printedName": "ACTIVE_SUBSCRIPTION_COUNT",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Tracker.TrackerVariableType.Type) -> Tracker.TrackerVariableType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TrackerVariableType",
+                    "printedName": "Tracker.TrackerVariableType",
+                    "usr": "s:7Tracker0A12VariableTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "Tracker.TrackerVariableType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TrackerVariableType",
+                        "printedName": "Tracker.TrackerVariableType",
+                        "usr": "s:7Tracker0A12VariableTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:7Tracker0A12VariableTypeO25ACTIVE_SUBSCRIPTION_COUNTyA2CmF",
+            "mangledName": "$s7Tracker0A12VariableTypeO25ACTIVE_SUBSCRIPTION_COUNTyA2CmF",
+            "moduleName": "Tracker",
+            "declAttributes": [
+              "RawDocComment"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "GPS_ACCURACY_HORIZONTAL",
+            "printedName": "GPS_ACCURACY_HORIZONTAL",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Tracker.TrackerVariableType.Type) -> Tracker.TrackerVariableType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TrackerVariableType",
+                    "printedName": "Tracker.TrackerVariableType",
+                    "usr": "s:7Tracker0A12VariableTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "Tracker.TrackerVariableType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TrackerVariableType",
+                        "printedName": "Tracker.TrackerVariableType",
+                        "usr": "s:7Tracker0A12VariableTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:7Tracker0A12VariableTypeO23GPS_ACCURACY_HORIZONTALyA2CmF",
+            "mangledName": "$s7Tracker0A12VariableTypeO23GPS_ACCURACY_HORIZONTALyA2CmF",
+            "moduleName": "Tracker",
+            "declAttributes": [
+              "RawDocComment"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "GPS_ACCURACY_VERTICAL",
+            "printedName": "GPS_ACCURACY_VERTICAL",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Tracker.TrackerVariableType.Type) -> Tracker.TrackerVariableType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TrackerVariableType",
+                    "printedName": "Tracker.TrackerVariableType",
+                    "usr": "s:7Tracker0A12VariableTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "Tracker.TrackerVariableType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TrackerVariableType",
+                        "printedName": "Tracker.TrackerVariableType",
+                        "usr": "s:7Tracker0A12VariableTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:7Tracker0A12VariableTypeO21GPS_ACCURACY_VERTICALyA2CmF",
+            "mangledName": "$s7Tracker0A12VariableTypeO21GPS_ACCURACY_VERTICALyA2CmF",
+            "moduleName": "Tracker",
+            "declAttributes": [
+              "RawDocComment"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "GPS_ALTITUDE",
+            "printedName": "GPS_ALTITUDE",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Tracker.TrackerVariableType.Type) -> Tracker.TrackerVariableType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TrackerVariableType",
+                    "printedName": "Tracker.TrackerVariableType",
+                    "usr": "s:7Tracker0A12VariableTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "Tracker.TrackerVariableType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TrackerVariableType",
+                        "printedName": "Tracker.TrackerVariableType",
+                        "usr": "s:7Tracker0A12VariableTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:7Tracker0A12VariableTypeO12GPS_ALTITUDEyA2CmF",
+            "mangledName": "$s7Tracker0A12VariableTypeO12GPS_ALTITUDEyA2CmF",
+            "moduleName": "Tracker",
+            "declAttributes": [
+              "RawDocComment"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "GPS_BEARING",
+            "printedName": "GPS_BEARING",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Tracker.TrackerVariableType.Type) -> Tracker.TrackerVariableType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TrackerVariableType",
+                    "printedName": "Tracker.TrackerVariableType",
+                    "usr": "s:7Tracker0A12VariableTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "Tracker.TrackerVariableType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TrackerVariableType",
+                        "printedName": "Tracker.TrackerVariableType",
+                        "usr": "s:7Tracker0A12VariableTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:7Tracker0A12VariableTypeO11GPS_BEARINGyA2CmF",
+            "mangledName": "$s7Tracker0A12VariableTypeO11GPS_BEARINGyA2CmF",
+            "moduleName": "Tracker",
+            "declAttributes": [
+              "RawDocComment"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "GPS_SPEED",
+            "printedName": "GPS_SPEED",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Tracker.TrackerVariableType.Type) -> Tracker.TrackerVariableType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TrackerVariableType",
+                    "printedName": "Tracker.TrackerVariableType",
+                    "usr": "s:7Tracker0A12VariableTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "Tracker.TrackerVariableType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TrackerVariableType",
+                        "printedName": "Tracker.TrackerVariableType",
+                        "usr": "s:7Tracker0A12VariableTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:7Tracker0A12VariableTypeO9GPS_SPEEDyA2CmF",
+            "mangledName": "$s7Tracker0A12VariableTypeO9GPS_SPEEDyA2CmF",
+            "moduleName": "Tracker",
+            "declAttributes": [
+              "RawDocComment"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "GPS_PROVIDER",
+            "printedName": "GPS_PROVIDER",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Tracker.TrackerVariableType.Type) -> Tracker.TrackerVariableType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TrackerVariableType",
+                    "printedName": "Tracker.TrackerVariableType",
+                    "usr": "s:7Tracker0A12VariableTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "Tracker.TrackerVariableType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TrackerVariableType",
+                        "printedName": "Tracker.TrackerVariableType",
+                        "usr": "s:7Tracker0A12VariableTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:7Tracker0A12VariableTypeO12GPS_PROVIDERyA2CmF",
+            "mangledName": "$s7Tracker0A12VariableTypeO12GPS_PROVIDERyA2CmF",
+            "moduleName": "Tracker",
+            "declAttributes": [
+              "RawDocComment"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "IS_OVERLAY_DETECTED",
+            "printedName": "IS_OVERLAY_DETECTED",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Tracker.TrackerVariableType.Type) -> Tracker.TrackerVariableType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TrackerVariableType",
+                    "printedName": "Tracker.TrackerVariableType",
+                    "usr": "s:7Tracker0A12VariableTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "Tracker.TrackerVariableType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TrackerVariableType",
+                        "printedName": "Tracker.TrackerVariableType",
+                        "usr": "s:7Tracker0A12VariableTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:7Tracker0A12VariableTypeO19IS_OVERLAY_DETECTEDyA2CmF",
+            "mangledName": "$s7Tracker0A12VariableTypeO19IS_OVERLAY_DETECTEDyA2CmF",
+            "moduleName": "Tracker",
+            "declAttributes": [
+              "RawDocComment"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "CAN_DRAW_OVERLAYS",
+            "printedName": "CAN_DRAW_OVERLAYS",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Tracker.TrackerVariableType.Type) -> Tracker.TrackerVariableType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TrackerVariableType",
+                    "printedName": "Tracker.TrackerVariableType",
+                    "usr": "s:7Tracker0A12VariableTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "Tracker.TrackerVariableType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TrackerVariableType",
+                        "printedName": "Tracker.TrackerVariableType",
+                        "usr": "s:7Tracker0A12VariableTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:7Tracker0A12VariableTypeO17CAN_DRAW_OVERLAYSyA2CmF",
+            "mangledName": "$s7Tracker0A12VariableTypeO17CAN_DRAW_OVERLAYSyA2CmF",
+            "moduleName": "Tracker",
+            "declAttributes": [
+              "RawDocComment"
+            ]
           },
           {
             "kind": "Var",
@@ -15591,6 +16465,199 @@
       },
       {
         "kind": "TypeDecl",
+        "name": "OverlayListener",
+        "printedName": "OverlayListener",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(payload:eventTrigger:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "OverlayListener",
+                "printedName": "Tracker.OverlayListener",
+                "usr": "s:7Tracker15OverlayListenerC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "DataPayload",
+                "printedName": "Tracker.DataPayload",
+                "usr": "s:7Tracker11DataPayloadC"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Tracker.TrackerEventType) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TrackerEventType",
+                    "printedName": "Tracker.TrackerEventType",
+                    "usr": "s:7Tracker0A9EventTypeO"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:7Tracker15OverlayListenerC7payload12eventTriggerAcA11DataPayloadC_yAA0A9EventTypeOctcfc",
+            "mangledName": "$s7Tracker15OverlayListenerC7payload12eventTriggerAcA11DataPayloadC_yAA0A9EventTypeOctcfc",
+            "moduleName": "Tracker",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "getTypes",
+            "printedName": "getTypes()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[Tracker.TrackerEventType]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TrackerEventType",
+                    "printedName": "Tracker.TrackerEventType",
+                    "usr": "s:7Tracker0A9EventTypeO"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:7Tracker15OverlayListenerC8getTypesSayAA0A9EventTypeOGyF",
+            "mangledName": "$s7Tracker15OverlayListenerC8getTypesSayAA0A9EventTypeOGyF",
+            "moduleName": "Tracker",
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getVariableTypes",
+            "printedName": "getVariableTypes()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[Tracker.TrackerVariableType]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TrackerVariableType",
+                    "printedName": "Tracker.TrackerVariableType",
+                    "usr": "s:7Tracker0A12VariableTypeO"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:7Tracker15OverlayListenerC16getVariableTypesSayAA0aE4TypeOGyF",
+            "mangledName": "$s7Tracker15OverlayListenerC16getVariableTypesSayAA0aE4TypeOGyF",
+            "moduleName": "Tracker",
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "start",
+            "printedName": "start()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:7Tracker15OverlayListenerC5startyyF",
+            "mangledName": "$s7Tracker15OverlayListenerC5startyyF",
+            "moduleName": "Tracker",
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "stop",
+            "printedName": "stop()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:7Tracker15OverlayListenerC4stopyyF",
+            "mangledName": "$s7Tracker15OverlayListenerC4stopyyF",
+            "moduleName": "Tracker",
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:7Tracker15OverlayListenerC",
+        "mangledName": "$s7Tracker15OverlayListenerC",
+        "moduleName": "Tracker",
+        "declAttributes": [
+          "Final",
+          "AccessControl",
+          "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "EventListener",
+            "printedName": "EventListener",
+            "usr": "s:7Tracker13EventListenerP",
+            "mangledName": "$s7Tracker13EventListenerP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Tracker"
+      },
+      {
+        "kind": "TypeDecl",
         "name": "ScreenListener",
         "printedName": "ScreenListener",
         "children": [
@@ -16103,6 +17170,159 @@
         "declKind": "Class",
         "usr": "s:7Tracker19ScreenShareListenerC",
         "mangledName": "$s7Tracker19ScreenShareListenerC",
+        "moduleName": "Tracker",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "EventListener",
+            "printedName": "EventListener",
+            "usr": "s:7Tracker13EventListenerP",
+            "mangledName": "$s7Tracker13EventListenerP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "Tracker"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "ScreenshotListener",
+        "printedName": "ScreenshotListener",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "getTypes",
+            "printedName": "getTypes()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[Tracker.TrackerEventType]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TrackerEventType",
+                    "printedName": "Tracker.TrackerEventType",
+                    "usr": "s:7Tracker0A9EventTypeO"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:7Tracker18ScreenshotListenerC8getTypesSayAA0A9EventTypeOGyF",
+            "mangledName": "$s7Tracker18ScreenshotListenerC8getTypesSayAA0A9EventTypeOGyF",
+            "moduleName": "Tracker",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(trigger:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ScreenshotListener",
+                "printedName": "Tracker.ScreenshotListener",
+                "usr": "s:7Tracker18ScreenshotListenerC"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Tracker.TrackerEventType) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TrackerEventType",
+                    "printedName": "Tracker.TrackerEventType",
+                    "usr": "s:7Tracker0A9EventTypeO"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:7Tracker18ScreenshotListenerC7triggerACyAA0A9EventTypeOc_tcfc",
+            "mangledName": "$s7Tracker18ScreenshotListenerC7triggerACyAA0A9EventTypeOc_tcfc",
+            "moduleName": "Tracker",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "start",
+            "printedName": "start()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:7Tracker18ScreenshotListenerC5startyyF",
+            "mangledName": "$s7Tracker18ScreenshotListenerC5startyyF",
+            "moduleName": "Tracker",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "stop",
+            "printedName": "stop()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:7Tracker18ScreenshotListenerC4stopyyF",
+            "mangledName": "$s7Tracker18ScreenshotListenerC4stopyyF",
+            "moduleName": "Tracker",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:7Tracker18ScreenshotListenerC",
+        "mangledName": "$s7Tracker18ScreenshotListenerC",
         "moduleName": "Tracker",
         "declAttributes": [
           "AccessControl",
@@ -19207,6 +20427,13 @@
       "offset": 286,
       "length": 4,
       "value": "true"
+    },
+    {
+      "filePath": "\/Users\/anoktaz\/Projects\/@tracker-sdk\/tracker-ios\/Tracker\/Listener\/OverlayListener.swift",
+      "kind": "StringLiteral",
+      "offset": 401,
+      "length": 17,
+      "value": "\"OverlayListener\""
     },
     {
       "filePath": "\/Users\/anoktaz\/Projects\/@tracker-sdk\/tracker-ios\/Tracker\/Listener\/ScreenListener.swift",

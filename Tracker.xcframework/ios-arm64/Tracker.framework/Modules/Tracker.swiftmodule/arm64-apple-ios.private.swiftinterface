@@ -418,6 +418,8 @@ public enum TrackerEventType : Swift.String, Swift.Codable {
   case DEBUGGER_ATTACHED
   case DEBUGGER_DETACHED
   case TAMPER_DETECTED
+  case SCREENSHOT_TAKEN
+  case OVERLAY_DETECTED
   case CUSTOM
   public init(from decoder: any Swift.Decoder) throws
   public var value: Swift.String {
@@ -472,6 +474,26 @@ public enum TrackerVariableType : Swift.String, Swift.Codable, Swift.CaseIterabl
   case NETWORK_TYPE
   case REACHABLE
   case WIFI_SSID
+  case WIFI_BSSID
+  case WIFI_CHANNEL
+  case WIFI_FREQUENCY
+  case WIFI_SIGNAL_STRENGTH
+  case CELL_ID
+  case CELL_LAC
+  case CELL_SIGNAL_STRENGTH
+  case CELL_NETWORK_TYPE
+  case HAS_ESIM_SUPPORT
+  case IS_USING_ESIM
+  case SIM_SLOT_COUNT
+  case ACTIVE_SUBSCRIPTION_COUNT
+  case GPS_ACCURACY_HORIZONTAL
+  case GPS_ACCURACY_VERTICAL
+  case GPS_ALTITUDE
+  case GPS_BEARING
+  case GPS_SPEED
+  case GPS_PROVIDER
+  case IS_OVERLAY_DETECTED
+  case CAN_DRAW_OVERLAYS
   case CALL_DURATION
   case CALL_IS_INCOMING
   case CALL_NUMBER
@@ -681,6 +703,14 @@ public class NetworkListener : Tracker.EventListener {
   public func stop()
   @objc deinit
 }
+final public class OverlayListener : Tracker.EventListener {
+  public init(payload: Tracker.DataPayload, eventTrigger: @escaping Tracker.NativeEventTrigger)
+  final public func getTypes() -> [Tracker.TrackerEventType]
+  final public func getVariableTypes() -> [Tracker.TrackerVariableType]
+  final public func start()
+  final public func stop()
+  @objc deinit
+}
 public class ScreenListener : Tracker.EventListener {
   public init(eventTrigger: @escaping Tracker.NativeEventTrigger)
   public func getTypes() -> [Tracker.TrackerEventType]
@@ -700,6 +730,13 @@ public class ScreenShareListener : Tracker.EventListener {
   public init(payload: Tracker.DataPayload, eventTrigger: @escaping Tracker.NativeEventTrigger)
   public func getTypes() -> [Tracker.TrackerEventType]
   public func getVariableTypes() -> [Tracker.TrackerVariableType]
+  public func start()
+  public func stop()
+  @objc deinit
+}
+public class ScreenshotListener : Tracker.EventListener {
+  public func getTypes() -> [Tracker.TrackerEventType]
+  public init(trigger: @escaping Tracker.NativeEventTrigger)
   public func start()
   public func stop()
   @objc deinit
