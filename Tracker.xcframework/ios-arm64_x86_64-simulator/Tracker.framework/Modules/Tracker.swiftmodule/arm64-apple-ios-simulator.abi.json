@@ -4225,6 +4225,113 @@
         "moduleName": "Tracker"
       },
       {
+        "kind": "TypeDecl",
+        "name": "FilterEngine",
+        "printedName": "FilterEngine",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "applyFilters",
+            "printedName": "applyFilters(items:filters:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[τ_0_0]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  }
+                ],
+                "usr": "s:Sa"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[τ_0_0]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  }
+                ],
+                "usr": "s:Sa"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[Tracker.VariableFilter]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[Tracker.VariableFilter]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "VariableFilter",
+                        "printedName": "Tracker.VariableFilter",
+                        "usr": "s:7Tracker14VariableFilterV"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:7Tracker12FilterEngineC12applyFilters5items7filtersSayxGAG_SayAA08VariableB0VGSgtlFZ",
+            "mangledName": "$s7Tracker12FilterEngineC12applyFilters5items7filtersSayxGAG_SayAA08VariableB0VGSgtlFZ",
+            "moduleName": "Tracker",
+            "genericSig": "<τ_0_0>",
+            "sugared_genericSig": "<T>",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:7Tracker12FilterEngineC",
+        "mangledName": "$s7Tracker12FilterEngineC",
+        "moduleName": "Tracker",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
+        ],
+        "hasMissingDesignatedInitializers": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Tracker"
+      },
+      {
         "kind": "Import",
         "name": "UIKit",
         "printedName": "UIKit",
@@ -6748,6 +6855,1054 @@
             "printedName": "Escapable",
             "usr": "s:s9EscapableP",
             "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Decodable",
+            "printedName": "Decodable",
+            "usr": "s:Se",
+            "mangledName": "$sSe"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Encodable",
+            "printedName": "Encodable",
+            "usr": "s:SE",
+            "mangledName": "$sSE"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Tracker"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "FilterOperator",
+        "printedName": "FilterOperator",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "isEquals",
+            "printedName": "isEquals",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Tracker.FilterOperator.Type) -> Tracker.FilterOperator",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "FilterOperator",
+                    "printedName": "Tracker.FilterOperator",
+                    "usr": "s:7Tracker14FilterOperatorO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "Tracker.FilterOperator.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "FilterOperator",
+                        "printedName": "Tracker.FilterOperator",
+                        "usr": "s:7Tracker14FilterOperatorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:7Tracker14FilterOperatorO8isEqualsyA2CmF",
+            "mangledName": "$s7Tracker14FilterOperatorO8isEqualsyA2CmF",
+            "moduleName": "Tracker"
+          },
+          {
+            "kind": "Var",
+            "name": "isEqualsIgnoreCase",
+            "printedName": "isEqualsIgnoreCase",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Tracker.FilterOperator.Type) -> Tracker.FilterOperator",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "FilterOperator",
+                    "printedName": "Tracker.FilterOperator",
+                    "usr": "s:7Tracker14FilterOperatorO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "Tracker.FilterOperator.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "FilterOperator",
+                        "printedName": "Tracker.FilterOperator",
+                        "usr": "s:7Tracker14FilterOperatorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:7Tracker14FilterOperatorO18isEqualsIgnoreCaseyA2CmF",
+            "mangledName": "$s7Tracker14FilterOperatorO18isEqualsIgnoreCaseyA2CmF",
+            "moduleName": "Tracker"
+          },
+          {
+            "kind": "Var",
+            "name": "notEquals",
+            "printedName": "notEquals",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Tracker.FilterOperator.Type) -> Tracker.FilterOperator",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "FilterOperator",
+                    "printedName": "Tracker.FilterOperator",
+                    "usr": "s:7Tracker14FilterOperatorO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "Tracker.FilterOperator.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "FilterOperator",
+                        "printedName": "Tracker.FilterOperator",
+                        "usr": "s:7Tracker14FilterOperatorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:7Tracker14FilterOperatorO9notEqualsyA2CmF",
+            "mangledName": "$s7Tracker14FilterOperatorO9notEqualsyA2CmF",
+            "moduleName": "Tracker"
+          },
+          {
+            "kind": "Var",
+            "name": "notEqualsIgnoreCase",
+            "printedName": "notEqualsIgnoreCase",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Tracker.FilterOperator.Type) -> Tracker.FilterOperator",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "FilterOperator",
+                    "printedName": "Tracker.FilterOperator",
+                    "usr": "s:7Tracker14FilterOperatorO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "Tracker.FilterOperator.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "FilterOperator",
+                        "printedName": "Tracker.FilterOperator",
+                        "usr": "s:7Tracker14FilterOperatorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:7Tracker14FilterOperatorO19notEqualsIgnoreCaseyA2CmF",
+            "mangledName": "$s7Tracker14FilterOperatorO19notEqualsIgnoreCaseyA2CmF",
+            "moduleName": "Tracker"
+          },
+          {
+            "kind": "Var",
+            "name": "isContains",
+            "printedName": "isContains",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Tracker.FilterOperator.Type) -> Tracker.FilterOperator",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "FilterOperator",
+                    "printedName": "Tracker.FilterOperator",
+                    "usr": "s:7Tracker14FilterOperatorO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "Tracker.FilterOperator.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "FilterOperator",
+                        "printedName": "Tracker.FilterOperator",
+                        "usr": "s:7Tracker14FilterOperatorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:7Tracker14FilterOperatorO10isContainsyA2CmF",
+            "mangledName": "$s7Tracker14FilterOperatorO10isContainsyA2CmF",
+            "moduleName": "Tracker"
+          },
+          {
+            "kind": "Var",
+            "name": "isContainsIgnoreCase",
+            "printedName": "isContainsIgnoreCase",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Tracker.FilterOperator.Type) -> Tracker.FilterOperator",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "FilterOperator",
+                    "printedName": "Tracker.FilterOperator",
+                    "usr": "s:7Tracker14FilterOperatorO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "Tracker.FilterOperator.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "FilterOperator",
+                        "printedName": "Tracker.FilterOperator",
+                        "usr": "s:7Tracker14FilterOperatorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:7Tracker14FilterOperatorO20isContainsIgnoreCaseyA2CmF",
+            "mangledName": "$s7Tracker14FilterOperatorO20isContainsIgnoreCaseyA2CmF",
+            "moduleName": "Tracker"
+          },
+          {
+            "kind": "Var",
+            "name": "notContains",
+            "printedName": "notContains",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Tracker.FilterOperator.Type) -> Tracker.FilterOperator",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "FilterOperator",
+                    "printedName": "Tracker.FilterOperator",
+                    "usr": "s:7Tracker14FilterOperatorO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "Tracker.FilterOperator.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "FilterOperator",
+                        "printedName": "Tracker.FilterOperator",
+                        "usr": "s:7Tracker14FilterOperatorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:7Tracker14FilterOperatorO11notContainsyA2CmF",
+            "mangledName": "$s7Tracker14FilterOperatorO11notContainsyA2CmF",
+            "moduleName": "Tracker"
+          },
+          {
+            "kind": "Var",
+            "name": "notContainsIgnoreCase",
+            "printedName": "notContainsIgnoreCase",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Tracker.FilterOperator.Type) -> Tracker.FilterOperator",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "FilterOperator",
+                    "printedName": "Tracker.FilterOperator",
+                    "usr": "s:7Tracker14FilterOperatorO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "Tracker.FilterOperator.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "FilterOperator",
+                        "printedName": "Tracker.FilterOperator",
+                        "usr": "s:7Tracker14FilterOperatorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:7Tracker14FilterOperatorO21notContainsIgnoreCaseyA2CmF",
+            "mangledName": "$s7Tracker14FilterOperatorO21notContainsIgnoreCaseyA2CmF",
+            "moduleName": "Tracker"
+          },
+          {
+            "kind": "Var",
+            "name": "isStartsWith",
+            "printedName": "isStartsWith",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Tracker.FilterOperator.Type) -> Tracker.FilterOperator",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "FilterOperator",
+                    "printedName": "Tracker.FilterOperator",
+                    "usr": "s:7Tracker14FilterOperatorO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "Tracker.FilterOperator.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "FilterOperator",
+                        "printedName": "Tracker.FilterOperator",
+                        "usr": "s:7Tracker14FilterOperatorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:7Tracker14FilterOperatorO12isStartsWithyA2CmF",
+            "mangledName": "$s7Tracker14FilterOperatorO12isStartsWithyA2CmF",
+            "moduleName": "Tracker"
+          },
+          {
+            "kind": "Var",
+            "name": "isStartsWithIgnoreCase",
+            "printedName": "isStartsWithIgnoreCase",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Tracker.FilterOperator.Type) -> Tracker.FilterOperator",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "FilterOperator",
+                    "printedName": "Tracker.FilterOperator",
+                    "usr": "s:7Tracker14FilterOperatorO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "Tracker.FilterOperator.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "FilterOperator",
+                        "printedName": "Tracker.FilterOperator",
+                        "usr": "s:7Tracker14FilterOperatorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:7Tracker14FilterOperatorO22isStartsWithIgnoreCaseyA2CmF",
+            "mangledName": "$s7Tracker14FilterOperatorO22isStartsWithIgnoreCaseyA2CmF",
+            "moduleName": "Tracker"
+          },
+          {
+            "kind": "Var",
+            "name": "notStartsWith",
+            "printedName": "notStartsWith",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Tracker.FilterOperator.Type) -> Tracker.FilterOperator",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "FilterOperator",
+                    "printedName": "Tracker.FilterOperator",
+                    "usr": "s:7Tracker14FilterOperatorO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "Tracker.FilterOperator.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "FilterOperator",
+                        "printedName": "Tracker.FilterOperator",
+                        "usr": "s:7Tracker14FilterOperatorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:7Tracker14FilterOperatorO13notStartsWithyA2CmF",
+            "mangledName": "$s7Tracker14FilterOperatorO13notStartsWithyA2CmF",
+            "moduleName": "Tracker"
+          },
+          {
+            "kind": "Var",
+            "name": "notStartsWithIgnoreCase",
+            "printedName": "notStartsWithIgnoreCase",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Tracker.FilterOperator.Type) -> Tracker.FilterOperator",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "FilterOperator",
+                    "printedName": "Tracker.FilterOperator",
+                    "usr": "s:7Tracker14FilterOperatorO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "Tracker.FilterOperator.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "FilterOperator",
+                        "printedName": "Tracker.FilterOperator",
+                        "usr": "s:7Tracker14FilterOperatorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:7Tracker14FilterOperatorO23notStartsWithIgnoreCaseyA2CmF",
+            "mangledName": "$s7Tracker14FilterOperatorO23notStartsWithIgnoreCaseyA2CmF",
+            "moduleName": "Tracker"
+          },
+          {
+            "kind": "Var",
+            "name": "isEndsWith",
+            "printedName": "isEndsWith",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Tracker.FilterOperator.Type) -> Tracker.FilterOperator",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "FilterOperator",
+                    "printedName": "Tracker.FilterOperator",
+                    "usr": "s:7Tracker14FilterOperatorO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "Tracker.FilterOperator.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "FilterOperator",
+                        "printedName": "Tracker.FilterOperator",
+                        "usr": "s:7Tracker14FilterOperatorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:7Tracker14FilterOperatorO10isEndsWithyA2CmF",
+            "mangledName": "$s7Tracker14FilterOperatorO10isEndsWithyA2CmF",
+            "moduleName": "Tracker"
+          },
+          {
+            "kind": "Var",
+            "name": "isEndsWithIgnoreCase",
+            "printedName": "isEndsWithIgnoreCase",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Tracker.FilterOperator.Type) -> Tracker.FilterOperator",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "FilterOperator",
+                    "printedName": "Tracker.FilterOperator",
+                    "usr": "s:7Tracker14FilterOperatorO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "Tracker.FilterOperator.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "FilterOperator",
+                        "printedName": "Tracker.FilterOperator",
+                        "usr": "s:7Tracker14FilterOperatorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:7Tracker14FilterOperatorO20isEndsWithIgnoreCaseyA2CmF",
+            "mangledName": "$s7Tracker14FilterOperatorO20isEndsWithIgnoreCaseyA2CmF",
+            "moduleName": "Tracker"
+          },
+          {
+            "kind": "Var",
+            "name": "notEndsWith",
+            "printedName": "notEndsWith",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Tracker.FilterOperator.Type) -> Tracker.FilterOperator",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "FilterOperator",
+                    "printedName": "Tracker.FilterOperator",
+                    "usr": "s:7Tracker14FilterOperatorO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "Tracker.FilterOperator.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "FilterOperator",
+                        "printedName": "Tracker.FilterOperator",
+                        "usr": "s:7Tracker14FilterOperatorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:7Tracker14FilterOperatorO11notEndsWithyA2CmF",
+            "mangledName": "$s7Tracker14FilterOperatorO11notEndsWithyA2CmF",
+            "moduleName": "Tracker"
+          },
+          {
+            "kind": "Var",
+            "name": "notEndsWithIgnoreCase",
+            "printedName": "notEndsWithIgnoreCase",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Tracker.FilterOperator.Type) -> Tracker.FilterOperator",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "FilterOperator",
+                    "printedName": "Tracker.FilterOperator",
+                    "usr": "s:7Tracker14FilterOperatorO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "Tracker.FilterOperator.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "FilterOperator",
+                        "printedName": "Tracker.FilterOperator",
+                        "usr": "s:7Tracker14FilterOperatorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:7Tracker14FilterOperatorO21notEndsWithIgnoreCaseyA2CmF",
+            "mangledName": "$s7Tracker14FilterOperatorO21notEndsWithIgnoreCaseyA2CmF",
+            "moduleName": "Tracker"
+          },
+          {
+            "kind": "Var",
+            "name": "isRegexMatch",
+            "printedName": "isRegexMatch",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Tracker.FilterOperator.Type) -> Tracker.FilterOperator",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "FilterOperator",
+                    "printedName": "Tracker.FilterOperator",
+                    "usr": "s:7Tracker14FilterOperatorO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "Tracker.FilterOperator.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "FilterOperator",
+                        "printedName": "Tracker.FilterOperator",
+                        "usr": "s:7Tracker14FilterOperatorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:7Tracker14FilterOperatorO12isRegexMatchyA2CmF",
+            "mangledName": "$s7Tracker14FilterOperatorO12isRegexMatchyA2CmF",
+            "moduleName": "Tracker"
+          },
+          {
+            "kind": "Var",
+            "name": "isRegexMatchIgnoreCase",
+            "printedName": "isRegexMatchIgnoreCase",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Tracker.FilterOperator.Type) -> Tracker.FilterOperator",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "FilterOperator",
+                    "printedName": "Tracker.FilterOperator",
+                    "usr": "s:7Tracker14FilterOperatorO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "Tracker.FilterOperator.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "FilterOperator",
+                        "printedName": "Tracker.FilterOperator",
+                        "usr": "s:7Tracker14FilterOperatorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:7Tracker14FilterOperatorO22isRegexMatchIgnoreCaseyA2CmF",
+            "mangledName": "$s7Tracker14FilterOperatorO22isRegexMatchIgnoreCaseyA2CmF",
+            "moduleName": "Tracker"
+          },
+          {
+            "kind": "Var",
+            "name": "notRegexMatch",
+            "printedName": "notRegexMatch",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Tracker.FilterOperator.Type) -> Tracker.FilterOperator",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "FilterOperator",
+                    "printedName": "Tracker.FilterOperator",
+                    "usr": "s:7Tracker14FilterOperatorO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "Tracker.FilterOperator.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "FilterOperator",
+                        "printedName": "Tracker.FilterOperator",
+                        "usr": "s:7Tracker14FilterOperatorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:7Tracker14FilterOperatorO13notRegexMatchyA2CmF",
+            "mangledName": "$s7Tracker14FilterOperatorO13notRegexMatchyA2CmF",
+            "moduleName": "Tracker"
+          },
+          {
+            "kind": "Var",
+            "name": "notRegexMatchIgnoreCase",
+            "printedName": "notRegexMatchIgnoreCase",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Tracker.FilterOperator.Type) -> Tracker.FilterOperator",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "FilterOperator",
+                    "printedName": "Tracker.FilterOperator",
+                    "usr": "s:7Tracker14FilterOperatorO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "Tracker.FilterOperator.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "FilterOperator",
+                        "printedName": "Tracker.FilterOperator",
+                        "usr": "s:7Tracker14FilterOperatorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:7Tracker14FilterOperatorO23notRegexMatchIgnoreCaseyA2CmF",
+            "mangledName": "$s7Tracker14FilterOperatorO23notRegexMatchIgnoreCaseyA2CmF",
+            "moduleName": "Tracker"
+          },
+          {
+            "kind": "Var",
+            "name": "lessThan",
+            "printedName": "lessThan",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Tracker.FilterOperator.Type) -> Tracker.FilterOperator",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "FilterOperator",
+                    "printedName": "Tracker.FilterOperator",
+                    "usr": "s:7Tracker14FilterOperatorO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "Tracker.FilterOperator.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "FilterOperator",
+                        "printedName": "Tracker.FilterOperator",
+                        "usr": "s:7Tracker14FilterOperatorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:7Tracker14FilterOperatorO8lessThanyA2CmF",
+            "mangledName": "$s7Tracker14FilterOperatorO8lessThanyA2CmF",
+            "moduleName": "Tracker"
+          },
+          {
+            "kind": "Var",
+            "name": "lessThanOrEquals",
+            "printedName": "lessThanOrEquals",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Tracker.FilterOperator.Type) -> Tracker.FilterOperator",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "FilterOperator",
+                    "printedName": "Tracker.FilterOperator",
+                    "usr": "s:7Tracker14FilterOperatorO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "Tracker.FilterOperator.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "FilterOperator",
+                        "printedName": "Tracker.FilterOperator",
+                        "usr": "s:7Tracker14FilterOperatorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:7Tracker14FilterOperatorO16lessThanOrEqualsyA2CmF",
+            "mangledName": "$s7Tracker14FilterOperatorO16lessThanOrEqualsyA2CmF",
+            "moduleName": "Tracker"
+          },
+          {
+            "kind": "Var",
+            "name": "greaterThan",
+            "printedName": "greaterThan",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Tracker.FilterOperator.Type) -> Tracker.FilterOperator",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "FilterOperator",
+                    "printedName": "Tracker.FilterOperator",
+                    "usr": "s:7Tracker14FilterOperatorO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "Tracker.FilterOperator.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "FilterOperator",
+                        "printedName": "Tracker.FilterOperator",
+                        "usr": "s:7Tracker14FilterOperatorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:7Tracker14FilterOperatorO11greaterThanyA2CmF",
+            "mangledName": "$s7Tracker14FilterOperatorO11greaterThanyA2CmF",
+            "moduleName": "Tracker"
+          },
+          {
+            "kind": "Var",
+            "name": "greaterThanOrEquals",
+            "printedName": "greaterThanOrEquals",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Tracker.FilterOperator.Type) -> Tracker.FilterOperator",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "FilterOperator",
+                    "printedName": "Tracker.FilterOperator",
+                    "usr": "s:7Tracker14FilterOperatorO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "Tracker.FilterOperator.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "FilterOperator",
+                        "printedName": "Tracker.FilterOperator",
+                        "usr": "s:7Tracker14FilterOperatorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:7Tracker14FilterOperatorO19greaterThanOrEqualsyA2CmF",
+            "mangledName": "$s7Tracker14FilterOperatorO19greaterThanOrEqualsyA2CmF",
+            "moduleName": "Tracker"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Tracker.FilterOperator?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "FilterOperator",
+                    "printedName": "Tracker.FilterOperator",
+                    "usr": "s:7Tracker14FilterOperatorO"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:7Tracker14FilterOperatorO8rawValueACSgSS_tcfc",
+            "mangledName": "$s7Tracker14FilterOperatorO8rawValueACSgSS_tcfc",
+            "moduleName": "Tracker",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:7Tracker14FilterOperatorO8rawValueSSvp",
+            "mangledName": "$s7Tracker14FilterOperatorO8rawValueSSvp",
+            "moduleName": "Tracker",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:7Tracker14FilterOperatorO8rawValueSSvg",
+                "mangledName": "$s7Tracker14FilterOperatorO8rawValueSSvg",
+                "moduleName": "Tracker",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:7Tracker14FilterOperatorO",
+        "mangledName": "$s7Tracker14FilterOperatorO",
+        "moduleName": "Tracker",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "enumRawTypeName": "String",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
           },
           {
             "kind": "Conformance",
@@ -13785,6 +14940,303 @@
       },
       {
         "kind": "TypeDecl",
+        "name": "VariableFilter",
+        "printedName": "VariableFilter",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "field",
+            "printedName": "field",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:7Tracker14VariableFilterV5fieldSSvp",
+            "mangledName": "$s7Tracker14VariableFilterV5fieldSSvp",
+            "moduleName": "Tracker",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:7Tracker14VariableFilterV5fieldSSvg",
+                "mangledName": "$s7Tracker14VariableFilterV5fieldSSvg",
+                "moduleName": "Tracker",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "operator",
+            "printedName": "operator",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "FilterOperator",
+                "printedName": "Tracker.FilterOperator",
+                "usr": "s:7Tracker14FilterOperatorO"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:7Tracker14VariableFilterV8operatorAA0C8OperatorOvp",
+            "mangledName": "$s7Tracker14VariableFilterV8operatorAA0C8OperatorOvp",
+            "moduleName": "Tracker",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "FilterOperator",
+                    "printedName": "Tracker.FilterOperator",
+                    "usr": "s:7Tracker14FilterOperatorO"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:7Tracker14VariableFilterV8operatorAA0C8OperatorOvg",
+                "mangledName": "$s7Tracker14VariableFilterV8operatorAA0C8OperatorOvg",
+                "moduleName": "Tracker",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "value",
+            "printedName": "value",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:7Tracker14VariableFilterV5valueSSSgvp",
+            "mangledName": "$s7Tracker14VariableFilterV5valueSSSgvp",
+            "moduleName": "Tracker",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:7Tracker14VariableFilterV5valueSSSgvg",
+                "mangledName": "$s7Tracker14VariableFilterV5valueSSSgvg",
+                "moduleName": "Tracker",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(field:operator:value:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "VariableFilter",
+                "printedName": "Tracker.VariableFilter",
+                "usr": "s:7Tracker14VariableFilterV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "FilterOperator",
+                "printedName": "Tracker.FilterOperator",
+                "usr": "s:7Tracker14FilterOperatorO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:7Tracker14VariableFilterV5field8operator5valueACSS_AA0C8OperatorOSSSgtcfc",
+            "mangledName": "$s7Tracker14VariableFilterV5field8operator5valueACSS_AA0C8OperatorOSSSgtcfc",
+            "moduleName": "Tracker",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(from:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "VariableFilter",
+                "printedName": "Tracker.VariableFilter",
+                "usr": "s:7Tracker14VariableFilterV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Decoder",
+                "printedName": "any Swift.Decoder",
+                "usr": "s:s7DecoderP"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:7Tracker14VariableFilterV4fromACs7Decoder_p_tKcfc",
+            "mangledName": "$s7Tracker14VariableFilterV4fromACs7Decoder_p_tKcfc",
+            "moduleName": "Tracker",
+            "implicit": true,
+            "throwing": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "encode",
+            "printedName": "encode(to:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Encoder",
+                "printedName": "any Swift.Encoder",
+                "usr": "s:s7EncoderP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:7Tracker14VariableFilterV6encode2toys7Encoder_p_tKF",
+            "mangledName": "$s7Tracker14VariableFilterV6encode2toys7Encoder_p_tKF",
+            "moduleName": "Tracker",
+            "implicit": true,
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:7Tracker14VariableFilterV",
+        "mangledName": "$s7Tracker14VariableFilterV",
+        "moduleName": "Tracker",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Decodable",
+            "printedName": "Decodable",
+            "usr": "s:Se",
+            "mangledName": "$sSe"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Encodable",
+            "printedName": "Encodable",
+            "usr": "s:SE",
+            "mangledName": "$sSE"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Tracker"
+      },
+      {
+        "kind": "TypeDecl",
         "name": "PeriodicDataScheduler",
         "printedName": "PeriodicDataScheduler",
         "children": [
@@ -20189,6 +21641,13 @@
       "offset": 222,
       "length": 2,
       "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/anoktaz\/Projects\/@tracker-sdk\/tracker-ios\/Tracker\/Core\/Engine\/FilterEngine.swift",
+      "kind": "StringLiteral",
+      "offset": 214,
+      "length": 14,
+      "value": "\"FilterEngine\""
     },
     {
       "filePath": "\/Users\/anoktaz\/Projects\/@tracker-sdk\/tracker-ios\/Tracker\/Core\/Engine\/TrackerEngine.swift",

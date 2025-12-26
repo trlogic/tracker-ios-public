@@ -238,6 +238,12 @@ public class EventCoordinator {
   public func triggerCustomEvent(eventName: Swift.String, arguments: [Swift.String : Any])
   @objc deinit
 }
+@_hasMissingDesignatedInitializers public class FilterEngine {
+  #if compiler(>=5.3) && $NonescapableTypes
+  public static func applyFilters<T>(items: [T], filters: [Tracker.VariableFilter]?) -> [T]
+  #endif
+  @objc deinit
+}
 public class TrackerEngine {
   #if compiler(>=5.3) && $NonescapableTypes
   public init(configuration: Tracker.TrackerConfiguration, eventService: any Tracker.EventServicing, eventCoordinator: any Tracker.EventCoordinating, periodicDataScheduler: any Tracker.PeriodicScheduling, dataPayload: Tracker.DataPayload, networkService: (any Tracker.NetworkService)? = nil)
@@ -338,6 +344,39 @@ public struct GenericResponse<T> : Swift.Codable where T : Swift.Decodable, T : 
   public let message: Swift.String?
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
+}
+public enum FilterOperator : Swift.String, Swift.Codable {
+  case isEquals
+  case isEqualsIgnoreCase
+  case notEquals
+  case notEqualsIgnoreCase
+  case isContains
+  case isContainsIgnoreCase
+  case notContains
+  case notContainsIgnoreCase
+  case isStartsWith
+  case isStartsWithIgnoreCase
+  case notStartsWith
+  case notStartsWithIgnoreCase
+  case isEndsWith
+  case isEndsWithIgnoreCase
+  case notEndsWith
+  case notEndsWithIgnoreCase
+  case isRegexMatch
+  case isRegexMatchIgnoreCase
+  case notRegexMatch
+  case notRegexMatchIgnoreCase
+  case lessThan
+  case lessThanOrEquals
+  case greaterThan
+  case greaterThanOrEquals
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.String)
+  #endif
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
 }
 public struct NativeEventData {
   public let type: Tracker.TrackerEventType
@@ -566,6 +605,16 @@ public enum VariableCollectionMetadata {
   public var hashValue: Swift.Int {
     get
   }
+}
+public struct VariableFilter : Swift.Codable {
+  public let field: Swift.String
+  public let `operator`: Tracker.FilterOperator
+  public let value: Swift.String?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(field: Swift.String, operator: Tracker.FilterOperator, value: Swift.String?)
+  #endif
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 public class PeriodicDataScheduler {
   public init(inventoryCollector: Tracker.InventoryCollector)
@@ -868,6 +917,9 @@ public class StorageService {
 extension Tracker.AppState : Swift.Equatable {}
 extension Tracker.AppState : Swift.Hashable {}
 extension Tracker.AppState : Swift.RawRepresentable {}
+extension Tracker.FilterOperator : Swift.Equatable {}
+extension Tracker.FilterOperator : Swift.Hashable {}
+extension Tracker.FilterOperator : Swift.RawRepresentable {}
 extension Tracker.TrackerEventType : Swift.Equatable {}
 extension Tracker.TrackerEventType : Swift.Hashable {}
 extension Tracker.TrackerEventType : Swift.RawRepresentable {}
