@@ -1,0 +1,149 @@
+name: TrackerSDK iOS
+
+on:
+  repository_dispatch:
+    types: [publish-package]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version to publish (e.g., 1.0.0)"
+        required: true
+        type: string
+      tag:
+        description: "Git tag to checkout (e.g., v1.0.0)"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-publish:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout public repo
+        uses: actions/checkout@v4
+
+      - name: Checkout private repo
+        uses: actions/checkout@v4
+        with:
+          repository: trlogic/tracker-ios
+          ref: ${{ github.event.inputs.tag || github.event.client_payload.tag }}
+          token: ${{ secrets.PRIVATE_REPO_TOKEN }}
+          path: tracker-ios-private
+
+      - name: Select Xcode version
+        run: sudo xcode-select -s /Applications/Xcode_15.4.app/Contents/Developer
+
+      - name: Build XCFramework
+        working-directory: tracker-ios-private
+        run: |
+          VERSION="${{ github.event.inputs.version || github.event.client_payload.version }}"
+          PROJECT_NAME="Tracker"
+          SCHEME_NAME="Tracker"
+          FRAMEWORK_NAME="Tracker"
+          BUILD_DIR="build"
+          XCFRAMEWORK_DIR="${FRAMEWORK_NAME}.xcframework"
+
+          # Clean old build files
+          rm -rf $BUILD_DIR
+          rm -rf $XCFRAMEWORK_DIR
+
+          # Build for iOS devices with version from tag
+          echo "Building for iOS devices (version: $VERSION)..."
+          xcodebuild -project ${PROJECT_NAME}.xcodeproj \
+            -scheme $SCHEME_NAME \
+            -configuration Release \
+            -sdk iphoneos \
+            clean build \
+            -derivedDataPath $BUILD_DIR/ios \
+            SKIP_INSTALL=NO \
+            BUILD_LIBRARY_FOR_DISTRIBUTION=YES \
+            MARKETING_VERSION=$VERSION \
+            CLANG_ENABLE_CODE_COVERAGE=NO \
+            GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=NO \
+            GCC_GENERATE_TEST_COVERAGE_FILES=NO
+
+          # Build for iOS Simulator with version from tag
+          echo "Building for iOS Simulator (version: $VERSION)..."
+          xcodebuild -project ${PROJECT_NAME}.xcodeproj \
+            -scheme $SCHEME_NAME \
+            -configuration Release \
+            -sdk iphonesimulator \
+            clean build \
+            -derivedDataPath $BUILD_DIR/iossimulator \
+            SKIP_INSTALL=NO \
+            BUILD_LIBRARY_FOR_DISTRIBUTION=YES \
+            MARKETING_VERSION=$VERSION \
+            CLANG_ENABLE_CODE_COVERAGE=NO \
+            GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=NO \
+            GCC_GENERATE_TEST_COVERAGE_FILES=NO
+
+          # Create .xcframework
+          echo "Creating XCFramework..."
+          xcodebuild -create-xcframework \
+            -framework $BUILD_DIR/ios/Build/Products/Release-iphoneos/${FRAMEWORK_NAME}.framework \
+            -framework $BUILD_DIR/iossimulator/Build/Products/Release-iphonesimulator/${FRAMEWORK_NAME}.framework \
+            -output $XCFRAMEWORK_DIR
+
+          echo "XCFramework created successfully with version $VERSION"
+
+      - name: Copy artifacts to public repo
+        run: |
+          VERSION="${{ github.event.inputs.version || github.event.client_payload.version }}"
+
+          # Remove old XCFramework
+          rm -rf Tracker.xcframework
+
+          # Copy new XCFramework
+          cp -R tracker-ios-private/Tracker.xcframework .
+
+          # Update Tracker.podspec version
+          sed -i '' "s/spec.version.*=.*/spec.version      = \"${VERSION}\"/" tracker-ios-private/Tracker.podspec
+          cp tracker-ios-private/Tracker.podspec .
+
+          # Copy LICENSE
+          cp tracker-ios-private/LICENSE .
+
+      - name: Commit and push changes
+        run: |
+          TAG="${{ github.event.inputs.tag || github.event.client_payload.tag }}"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add -A
+          git commit -m "Release ${TAG}" || echo "No changes to commit"
+          git push origin main
+
+      - name: Create and push tag
+        run: |
+          TAG="${{ github.event.inputs.tag || github.event.client_payload.tag }}"
+
+          git tag -a "$TAG" -m "Release $TAG"
+          git push origin "$TAG"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.event.inputs.tag || github.event.client_payload.tag }}
+          name: Release ${{ github.event.inputs.version || github.event.client_payload.version }}
+          body: |
+            ## Tracker iOS SDK ${{ github.event.inputs.version || github.event.client_payload.version }}
+
+            ### Installation
+
+            #### Swift Package Manager
+            ```swift
+            .package(url: "https://github.com/trlogic/tracker-ios-public.git", from: "${{ github.event.inputs.version || github.event.client_payload.version }}")
+            ```
+
+            #### CocoaPods
+            ```ruby
+            pod 'Tracker', '~> ${{ github.event.inputs.version || github.event.client_payload.version }}'
+            ```
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
