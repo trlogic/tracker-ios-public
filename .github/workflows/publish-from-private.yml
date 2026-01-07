@@ -31,10 +31,10 @@ jobs:
           repository: trlogic/tracker-ios
           ref: ${{ github.event.inputs.tag || github.event.client_payload.tag }}
           token: ${{ secrets.PRIVATE_REPO_TOKEN }}
-          path: tracker-ios-private
+          path: source
 
       - name: Build XCFramework
-        working-directory: tracker-ios-private
+        working-directory: source
         run: |
           VERSION="${{ github.event.inputs.version || github.event.client_payload.version }}"
           PROJECT_NAME="Tracker"
@@ -92,22 +92,10 @@ jobs:
 
           echo "XCFramework created successfully with version $VERSION"
 
-      - name: Copy artifacts to public repo
+      - name: Copy XCFramework to public repo
         run: |
-          VERSION="${{ github.event.inputs.version || github.event.client_payload.version }}"
-
-          # Remove old XCFramework
           rm -rf Tracker.xcframework
-
-          # Copy new XCFramework
-          cp -R tracker-ios-private/Tracker.xcframework .
-
-          # Update Tracker.podspec version
-          sed -i '' "s/spec.version.*=.*/spec.version      = \"${VERSION}\"/" tracker-ios-private/Tracker.podspec
-          cp tracker-ios-private/Tracker.podspec .
-
-          # Copy LICENSE
-          cp tracker-ios-private/LICENSE .
+          cp -R source/Tracker.xcframework .
 
       - name: Commit and push changes
         run: |
